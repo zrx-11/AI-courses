@@ -48,8 +48,15 @@ function hl(text, terms){
   let out=esc(text);
   terms.forEach(function(t){
     if(!t) return;
-    const re=new RegExp('('+t.replace(/[.*+?^${}()|[\]\]/g,'\$&')+')','gi');
-    out=out.replace(re,'<mark>$1</mark>');
+    const lower=out.toLowerCase();
+    let i=0, res='';
+    while(i<out.length){
+      const idx=lower.indexOf(t,i);
+      if(idx<0){res+=out.slice(i);break;}
+      res+=out.slice(i,idx)+'<mark>'+out.slice(idx,idx+t.length)+'</mark>';
+      i=idx+t.length;
+    }
+    out=res;
   });
   return out;
 }
