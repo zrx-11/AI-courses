@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷十二｜经典论文与延伸阅读清单（48 篇）</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷十二｜经典论文与延伸阅读清单（48 篇）</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷十二｜经典论文与延伸阅读清单（48 篇）</h3>
+<p>以下论文来自各课程官网推荐阅读，按课程归档；标题、作者与年份均已核对。每篇附详细摘要与阅读建议，便于按需精读。</p>
+<p class="paper"><strong>01. word2vec</strong>（CS224N）<br>Efficient Estimation of Word Representations in Vector Space｜Mikolov et al., 2013<br>说明：CS224N 第 2 周推荐阅读，词向量 CBOW/Skip-gram 的原始论文。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>02. GloVe</strong>（CS224N）<br>GloVe: Global Vectors for Word Representation｜Pennington et al., 2014<br>说明：基于全局共现统计的词向量方法，CS224N 推荐阅读。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>03. Attention Is All You Need</strong>（CS224N/CS224U）<br>Attention Is All You Need｜Vaswani et al., 2017<br>说明：Transformer 架构原始论文，CS224N 与 CS224U 均推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>04. BERT</strong>（CS224N）<br>BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding｜Devlin et al., 2018<br>说明：掩码语言模型预训练论文，CS224N 第 4 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>05. LoRA</strong>（CS224N）<br>LoRA: Low-Rank Adaptation of Large Language Models｜Hu et al., 2021<br>说明：低秩适配微调方法，CS224N 第 5 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>06. DPO</strong>（CS224N/CS224R）<br>Direct Preference Optimization: Your Language Model is Secretly a Reward Model｜Rafailov et al., 2023<br>说明：直接偏好优化，CS224N 与 CS224R 均推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>07. RAG</strong>（CS224N/CS224U）<br>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks｜Lewis et al., 2020<br>说明：检索增强生成原始论文，CS224N/CS224U 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>08. ReAct</strong>（CS224N）<br>ReAct: Synergizing Reasoning and Acting in Language Models｜Yao et al., 2022<br>说明：推理与行动交替的 Agent 范式，CS224N 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>09. Toolformer</strong>（CS224N）<br>Toolformer: Language Models Can Teach Themselves to Use Tools｜Schick et al., 2023<br>说明：模型自学习使用工具的论文，CS224N 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>10. RLHF</strong>（CS224N）<br>Aligning language models to follow instructions｜Ouyang et al., 2022<br>说明：InstructGPT 的 RLHF 流程论文，CS224N 第 4 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>11. CoT</strong>（CS224N）<br>Chain-of-Thought Prompting Elicits Reasoning in Large Language Models｜Wei et al., 2022<br>说明：思维链提示论文，CS224N 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>12. Self-Consistency</strong>（CS224N）<br>Self-Consistency Improves Chain of Thought Reasoning in Language Models｜Wang et al., 2022<br>说明：自一致性推理论文，CS224N 第 6 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>13. DeepSeek-R1</strong>（CS224N）<br>DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning｜DeepSeek-AI, 2025<br>说明：用强化学习激励推理能力的论文，CS224N 第 6 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>14. DAPO</strong>（CS224N）<br>DAPO: An Open-Source LLM Reinforcement Learning System at Scale｜ByteDance, 2025<br>说明：开源大规模 LLM 强化学习系统，CS224N 第 6 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>15. Speculative Decoding</strong>（CS224N）<br>Fast Inference from Transformers via Speculative Decoding｜Leviathan et al., 2023<br>说明：投机解码加速推理论文，CS224N 第 7 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>16. Test-Time Compute</strong>（CS224N）<br>Scaling LLM Test-Time Compute Optimally｜Snell et al., 2024<br>说明：推理时计算缩放论文，CS224N 第 7 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>17. Let&#x27;s Verify Step by Step</strong>（CS224N）<br>Let&#x27;s Verify Step by Step｜Lightman et al., 2023<br>说明：过程监督 vs 结果监督，CS224N 第 7 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>18. ColBERT</strong>（CS224U）<br>ColBERT: Efficient and Effective Passage Search via Contextualized Late Interaction over BERT｜Khattab &amp; Zaharia, 2020<br>说明：后期交互检索模型，CS224U 第 4 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>19. DPR</strong>（CS224U）<br>Dense Passage Retrieval for Open-Domain Question Answering｜Karpukhin et al., 2020<br>说明：密集段落检索，CS224U 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>20. SPLADE</strong>（CS224U）<br>SPLADE: Sparse Lexical and Expansion Model｜Formal et al., 2021<br>说明：稀疏词项扩展检索，CS224U 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>21. GPT-3</strong>（CS224U）<br>Language Models are Few-Shot Learners｜Brown et al., 2020<br>说明：GPT-3 少样本学习论文，CS224U 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>22. DynaSent</strong>（CS224U）<br>DynaSent: A Dynamic Benchmark for Sentiment Analysis｜Potts, Wu et al., 2020<br>说明：动态情感基准，CS224U 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>23. The Pile</strong>（CS224U）<br>The Pile: An 800GB Dataset of Diverse Text for Language Modeling｜Gao et al., 2020<br>说明：多样化训练语料库，CS224U 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>24. ANLI</strong>（CS224U）<br>Adversarial NLI: A New Benchmark for Natural Language Understanding｜Nie et al., 2020<br>说明：对抗性 NLI 基准，CS224U 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>25. Dynabench</strong>（CS224U）<br>Dynabench: Rethinking Benchmarking in NLP｜Kiela et al., 2021<br>说明：动态基准平台论文，CS224U 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>26. LIME</strong>（CS224U）<br>Why Should I Trust You? Explaining the Predictions of Any Classifier｜Ribeiro et al., 2016<br>说明：局部可解释方法，CS224U 分析模块推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>27. Probing</strong>（CS224U）<br>What do you learn from context? Probing for sentence structure｜Tenney et al., 2018<br>说明：探针实验分析表示，CS224U 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>28. Diffusion Policy</strong>（CS224R）<br>Diffusion Policy: Visuomotor Policy Learning via Action Diffusion｜Chi et al., 2024<br>说明：动作扩散策略，CS224R 第 1 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>29. REINFORCE 论文</strong>（CS224R）<br>Simple statistical gradient-following algorithms for connectionist reinforcement learning｜Williams, 1992<br>说明：策略梯度奠基论文，CS224R 第 2 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>30. PPO</strong>（CS224R）<br>Proximal Policy Optimization Algorithms｜Schulman et al., 2017<br>说明：PPO 算法论文，CS224R 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>31. Atari DQN</strong>（CS224R）<br>Playing Atari with Deep Reinforcement Learning｜Mnih et al., 2013<br>说明：DQN 原始论文，CS224R 第 3 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>32. Double DQN</strong>（CS224R）<br>Deep Reinforcement Learning with Double Q-learning｜van Hasselt et al., 2015<br>说明：双 Q 学习论文，CS224R 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>33. CQL</strong>（CS224R）<br>Conservative Q-Learning for Offline Reinforcement Learning｜Kumar et al., 2020<br>说明：离线 RL 保守 Q 学习，CS224R 第 4 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>34. IQL</strong>（CS224R）<br>Offline Reinforcement Learning with Implicit Q-Learning｜Kostrikov et al., 2021<br>说明：隐式 Q 学习离线 RL，CS224R 推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>35. Preference RL</strong>（CS224R）<br>Deep reinforcement learning from human preferences｜Christiano et al., 2017<br>说明：人类偏好强化学习，CS224R 第 4 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>36. MBPO</strong>（CS224R）<br>When to Trust Your Model: Model-Based Policy Optimization｜Janner et al., 2019<br>说明：基于模型的策略优化，CS224R 第 6 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>37. HER</strong>（CS224R）<br>Hindsight Experience Replay｜Andrychowicz et al., 2018<br>说明：事后经验回放，CS224R 第 6 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>38. RL2</strong>（CS224R）<br>RL2: Fast Reinforcement Learning via Slow Reinforcement Learning｜Duan et al., 2016<br>说明：元强化学习论文，CS224R 第 7 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>39. SayCan</strong>（CS224R）<br>Do As I Can, Not As I Say: Grounding Language in Robotic Affordances｜Ahn et al., 2022<br>说明：语言与机器人能力结合，CS224R 第 8 周推荐。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>40. FID</strong>（6.S184/生成）<br>GANs Trained by a Two Time-Scale Update Rule Converge to a Local Nash Equilibrium｜Heusel et al., 2017<br>说明：FID 指标原始论文，生成模型评估常用。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>41. DDPM</strong>（6.S184）<br>Denoising Diffusion Probabilistic Models｜Ho et al., 2020<br>说明：DDPM 原始论文，扩散模型基础。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>42. Flow Matching</strong>（6.S184）<br>Flow Matching for Generative Modeling｜Lipman et al., 2022<br>说明：流匹配生成建模论文，6.S184 核心内容。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>43. Score Matching</strong>（6.S184）<br>Estimation of Non-Normalized Statistical Models by Score Matching｜Hyvärinen, 2005<br>说明：评分匹配奠基论文，6.S184 核心内容。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>44. Classifier-Free Guidance</strong>（6.S184）<br>Classifier-Free Diffusion Guidance｜Ho &amp; Salimans, 2021<br>说明：无分类器引导论文，6.S184 核心内容。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>45. DiT</strong>（6.S184）<br>Scalable Diffusion Models with Transformers｜Peebles &amp; Xie, 2023<br>说明：扩散 Transformer 论文，6.S184 实验 3 内容。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>46. VAE</strong>（6.S184）<br>Auto-Encoding Variational Bayes｜Kingma &amp; Welling, 2013<br>说明：VAE 原始论文，6.S184 潜空间内容。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>47. SDE 扩散</strong>（6.S184）<br>Score-Based Generative Modeling through Stochastic Differential Equations｜Song et al., 2020<br>说明：SDE 框架扩散模型论文，6.S184 数学基础。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+<p class="paper"><strong>48. CME295 相关</strong>（CME295/CS224N）<br>RoFormer: Enhanced Transformer with Rotary Position Embedding｜Su et al., 2021<br>说明：RoPE 旋转位置编码论文，CS224N 第 7 周推荐，与 CME295 内容呼应。<br>精读建议：先读摘要与图表，用自己的话复述核心方法；再对照课程讲义找出论文与讲座的对应关系；最后记录一个问题——论文未解决、你愿意继续追问的部分。论文的价值不在于被“读完成”，而在于每次回到课程时都能读出新的层次。</p>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

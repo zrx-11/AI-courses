@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷五｜其余十门课程档案</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷五｜其余十门课程档案</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷五｜其余十门课程档案</h3>
+<h4 id="course-2">课程档案 02｜Stanford CS224G：LLM 应用工程（CS224G）</h4>
+<p class="meta">学校：Stanford　·　分类：A｜应用与 Agent　·　官网：<a href="https://web.stanford.edu/class/cs224g/">https://web.stanford.edu/class/cs224g/</a></p>
+<p><strong>解决什么问题：</strong>把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工程与评估。</p>
+<p><strong>可用材料／版本：</strong>2026 讲义、部分代码；无讲课录播。</p>
+<p><strong>版本说明：</strong>2026 版讲义与代码；注意无录播。</p>
+<p><strong>前置知识：</strong>Python；基础机器学习知识。</p>
+<p><strong>适合谁：</strong>想做 LLM 应用工程与 Agent 系统的人。</p>
+<p><strong>不适合谁：</strong>只想要完整录播自学的人（本课程无公开录播）。</p>
+<p><strong>第一步：</strong>阅读 2026 讲义，跑通提供的示例代码。</p>
+<p><strong>真实反馈：</strong>讲义质量高，但公开材料不含讲课视频。</p>
+<p><strong>讲座主题（6 讲）：</strong></p><ol><li>LLM 应用总览</li><li>提示工程</li><li>RAG 与检索</li><li>Agent 系统设计</li><li>评估与测试</li><li>生产部署</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>讲义配套代码实验</li><li>LLM 应用原型</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>有公开录播吗？</dt><dd>无讲课录播；公开的是讲义与部分代码。</dd><dt>适合什么人？</dt><dd>已有 Python 基础、想直接做 LLM 应用工程的人。</dd></dl>
+<p><strong>主题标签：</strong>LLM、Agent、提示工程、RAG、评估。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-5">课程档案 05｜MIT 6.7960：学期级深度学习（6.7960）</h4>
+<p class="meta">学校：MIT　·　分类：B｜基础　·　官网：<a href="https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/">https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/</a></p>
+<p><strong>解决什么问题：</strong>一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型与实验。</p>
+<p><strong>可用材料／版本：</strong>2024 OCW 视频、习题。</p>
+<p><strong>版本说明：</strong>Fall 2024 OCW。</p>
+<p><strong>前置知识：</strong>线性代数、微积分、概率；Python。</p>
+<p><strong>适合谁：</strong>想花一学期系统学深度学习的人。</p>
+<p><strong>不适合谁：</strong>只想快速入门的人（6.S191 更短）。</p>
+<p><strong>第一步：</strong>从 OCW 第一讲开始，配套习题逐题完成。</p>
+<p><strong>真实反馈：</strong>OCW 完整开放，习题体系完善。</p>
+<p><strong>讲座主题（8 讲）：</strong></p><ol><li>深度学习总览</li><li>神经网络基础</li><li>反向传播</li><li>卷积网络</li><li>序列模型</li><li>生成模型</li><li>优化与泛化</li><li>前沿主题</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>OCW 习题集</li><li>课程项目</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>和 6.S191 关系？</dt><dd>6.S191 是短程入门，6.7960 是一学期系统课，两者可互补。</dd><dt>免费吗？</dt><dd>OCW 完全免费开放。</dd></dl>
+<p><strong>主题标签：</strong>深度学习、神经网络、卷积网络、序列模型、生成模型。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-6">课程档案 06｜Stanford CS229：机器学习（CS229）</h4>
+<p class="meta">学校：Stanford　·　分类：B｜基础　·　官网：<a href="https://cs229.stanford.edu/">https://cs229.stanford.edu/</a></p>
+<p><strong>解决什么问题：</strong>机器学习的数学基础：监督学习、无监督学习、学习理论、优化。</p>
+<p><strong>可用材料／版本：</strong>官方公开视频；当前校内资料需登录；Stanford Online 官方频道可搜 CS229 免费录播。</p>
+<p><strong>版本说明：</strong>历年公开视频；校内资料需登录。</p>
+<p><strong>前置知识：</strong>线性代数、概率、微积分。</p>
+<p><strong>适合谁：</strong>需要机器学习数学基础、为后续课程铺路的人。</p>
+<p><strong>不适合谁：</strong>只想用库跑模型的人。</p>
+<p><strong>第一步：</strong>看第一节线性回归，把推导手写一遍。</p>
+<p><strong>真实反馈：</strong>经典机器学习课程，数学推导完整。</p>
+<p><strong>讲座主题（10 讲）：</strong></p><ol><li>线性回归与梯度下降</li><li>分类与逻辑回归</li><li>广义线性模型</li><li>生成学习算法</li><li>支持向量机</li><li>学习理论</li><li>无监督学习</li><li>EM 算法</li><li>因子分析与 PCA</li><li>强化学习导论</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>编程作业：回归、分类、SVM、无监督</li><li>期中与期末</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>需要什么基础？</dt><dd>线性代数、概率与微积分。</dd><dt>公开材料有哪些？</dt><dd>官方公开视频；校内讲义与作业需登录。</dd></dl>
+<p><strong>主题标签：</strong>机器学习、线性回归、分类、SVM、学习理论、无监督学习。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-7">课程档案 07｜Stanford CS221：人工智能：搜索、推理与决策（CS221）</h4>
+<p class="meta">学校：Stanford　·　分类：B｜基础　·　官网：<a href="https://stanford-cs221.github.io/">https://stanford-cs221.github.io/</a></p>
+<p><strong>解决什么问题：</strong>AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。</p>
+<p><strong>可用材料／版本：</strong>2025 官方视频；GitHub 讲义。</p>
+<p><strong>版本说明：</strong>2025 官方视频。</p>
+<p><strong>前置知识：</strong>编程能力；基础概率。</p>
+<p><strong>适合谁：</strong>想建立 AI 全局框架的人；CS224R 的 RL 前置参考。</p>
+<p><strong>不适合谁：</strong>只想学深度学习的人。</p>
+<p><strong>第一步：</strong>看搜索与 MDP 章节，为后续 RL 打底。</p>
+<p><strong>真实反馈：</strong>覆盖广而基础，是很多斯坦福课程的公共前导。</p>
+<p><strong>讲座主题（8 讲）：</strong></p><ol><li>搜索</li><li>约束满足问题</li><li>博弈</li><li>MDP</li><li>强化学习</li><li>贝叶斯网络</li><li>概率推理</li><li>学习与决策</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>编程作业：搜索、CSP、博弈、MDP</li><li>期末项目</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>和 CS229 关系？</dt><dd>CS229 重统计学习，CS221 重搜索/推理/决策框架。</dd><dt>适合 RL 前置吗？</dt><dd>CS224R 官方建议参考 CS221 的 MDP 与 RL 讲座。</dd></dl>
+<p><strong>主题标签：</strong>搜索、推理、决策、MDP、强化学习、贝叶斯网络。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-8">课程档案 08｜Stanford CS230：深度学习概览（CS230）</h4>
+<p class="meta">学校：Stanford　·　分类：B｜基础　·　官网：<a href="https://cs230.stanford.edu/">https://cs230.stanford.edu/</a></p>
+<p><strong>解决什么问题：</strong>深度学习的整体概览：CNN、RNN、Transformer、调参与应用。</p>
+<p><strong>可用材料／版本：</strong>2025 公开视频；配套另有 Coursera 组件。</p>
+<p><strong>版本说明：</strong>2025 公开视频 + Coursera。</p>
+<p><strong>前置知识：</strong>Python；基础机器学习。</p>
+<p><strong>适合谁：</strong>想在不陷进数学的前提下了解深度学习全貌的人。</p>
+<p><strong>不适合谁：</strong>想从零训练大模型的人。</p>
+<p><strong>第一步：</strong>看 CNN 与 RNN 章节，跑一个 mini 项目。</p>
+<p><strong>真实反馈：</strong>工程导向，覆盖面广，深度适中。</p>
+<p><strong>讲座主题（6 讲）：</strong></p><ol><li>深度学习导论</li><li>卷积网络</li><li>RNN 与序列</li><li>Transformer</li><li>调参实践</li><li>项目报告</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>编程作业</li><li>期中项目</li><li>期末项目</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>和 CS229 区别？</dt><dd>CS229 是机器学习基础，CS230 聚焦深度学习应用。</dd><dt>有 Coursera 版？</dt><dd>有配套 Coursera 组件，可灵活学习。</dd></dl>
+<p><strong>主题标签：</strong>深度学习、CNN、RNN、Transformer、调参。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-14">课程档案 14｜Stanford CS329H：从人类偏好学习（CS329H）</h4>
+<p class="meta">学校：Stanford　·　分类：D｜反馈与研究　·　官网：<a href="https://web.stanford.edu/class/cs329h/">https://web.stanford.edu/class/cs329h/</a></p>
+<p><strong>解决什么问题：</strong>人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。</p>
+<p><strong>可用材料／版本：</strong>2024 官方视频。</p>
+<p><strong>版本说明：</strong>2024 官方视频。</p>
+<p><strong>前置知识：</strong>机器学习基础；RL 基础有帮助。</p>
+<p><strong>适合谁：</strong>想深入研究对齐与人类偏好建模的人。</p>
+<p><strong>不适合谁：</strong>只想快速用 API 的人。</p>
+<p><strong>第一步：</strong>看 RLHF 与 DPO 章节，复述偏好优化流程。</p>
+<p><strong>真实反馈：</strong>面向偏研究的学习者，与 CS224N 后训练章节衔接。</p>
+<p><strong>讲座主题（6 讲）：</strong></p><ol><li>偏好建模</li><li>RLHF</li><li>DPO</li><li>反馈数据</li><li>对齐评估</li><li>前沿主题</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>阅读讨论</li><li>研究项目</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>和 CS329A 区别？</dt><dd>CS329A 覆盖 Agent 自我改进；CS329H 聚焦从人类偏好学习。</dd><dt>需要 RL 基础吗？</dt><dd>有帮助但非硬性要求。</dd></dl>
+<p><strong>主题标签：</strong>RLHF、DPO、偏好学习、对齐、反馈。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-15">课程档案 15｜Stanford CS25：研究者专题研讨（CS25）</h4>
+<p class="meta">学校：Stanford　·　分类：D｜反馈与研究　·　官网：<a href="https://web.stanford.edu/class/cs25/recordings/">https://web.stanford.edu/class/cs25/recordings/</a></p>
+<p><strong>解决什么问题：</strong>以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀请研究者讲解最新进展。</p>
+<p><strong>可用材料／版本：</strong>V6 及历届精选录播。</p>
+<p><strong>版本说明：</strong>V6 及历届精选。</p>
+<p><strong>前置知识：</strong>对 Transformer/LLM 有基本了解。</p>
+<p><strong>适合谁：</strong>想低成本跟踪研究前沿的人。</p>
+<p><strong>不适合谁：</strong>需要系统课程训练的人。</p>
+<p><strong>第一步：</strong>从历届精选录播中挑选感兴趣主题观看。</p>
+<p><strong>真实反馈：</strong>研讨型，适合拓宽视野而非打基础。</p>
+<p><strong>讲座主题（2 讲）：</strong></p><ol><li>历届研究者专题</li><li>V6 精选录播</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>无作业；研讨参与</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>课程性质？</dt><dd>研究者专题研讨，非系统训练课程。</dd><dt>在哪里看？</dt><dd>官网 recordings 页面有历届录播。</dd></dl>
+<p><strong>主题标签：</strong>Transformer、LLM、研讨、前沿。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-16">课程档案 16｜Stanford CS231N：计算机视觉（CS231N）</h4>
+<p class="meta">学校：Stanford　·　分类：E｜视觉与生成　·　官网：<a href="https://cs231n.stanford.edu/">https://cs231n.stanford.edu/</a></p>
+<p><strong>解决什么问题：</strong>视觉任务的深度学习：CNN、视觉 Transformer、目标检测、图像生成。</p>
+<p><strong>可用材料／版本：</strong>2025 官方视频。</p>
+<p><strong>版本说明：</strong>2025 官方视频。</p>
+<p><strong>前置知识：</strong>Python；基础机器学习。</p>
+<p><strong>适合谁：</strong>想做视觉方向、理解 CNN 与 ViT 的人。</p>
+<p><strong>不适合谁：</strong>只做纯文本 LLM 应用的人。</p>
+<p><strong>第一步：</strong>看 CNN 与反向传播章节，跑通一个图像分类实验。</p>
+<p><strong>真实反馈：</strong>经典视觉课，讲义与作业体系成熟。</p>
+<p><strong>讲座主题（7 讲）：</strong></p><ol><li>图像分类与 CNN</li><li>反向传播与优化</li><li>视觉 Transformer</li><li>目标检测与分割</li><li>生成模型与 GAN</li><li>自监督视觉</li><li>视频理解</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>图像分类</li><li>目标检测</li><li>期末项目</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>需要什么基础？</dt><dd>Python 与基础机器学习。</dd><dt>公开材料？</dt><dd>2025 官方视频公开。</dd></dl>
+<p><strong>主题标签：</strong>计算机视觉、CNN、ViT、目标检测、图像生成。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-17">课程档案 17｜MIT MAS.S60：如何 AI 万物（MAS.S60）</h4>
+<p class="meta">学校：MIT　·　分类：E｜视觉与生成　·　官网：<a href="https://ocw.mit.edu/courses/mas-s60-how-to-ai-almost-anything-spring-2025/">https://ocw.mit.edu/courses/mas-s60-how-to-ai-almost-anything-spring-2025/</a></p>
+<p><strong>解决什么问题：</strong>多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种模态。</p>
+<p><strong>可用材料／版本：</strong>2025 OCW 材料。</p>
+<p><strong>版本说明：</strong>Spring 2025 OCW。</p>
+<p><strong>前置知识：</strong>Python 基础。</p>
+<p><strong>适合谁：</strong>想做多模态应用与创意科研项目的人。</p>
+<p><strong>不适合谁：</strong>想深入理论的人。</p>
+<p><strong>第一步：</strong>从 OCW 材料中选一个多模态项目动手。</p>
+<p><strong>真实反馈：</strong>实践导向，跨学科友好。</p>
+<p><strong>讲座主题（6 讲）：</strong></p><ol><li>多模态 AI 总览</li><li>文本处理</li><li>图像处理</li><li>声音处理</li><li>视频处理</li><li>项目实践</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>动手项目系列</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>和 6.S191 区别？</dt><dd>MAS.S60 侧重多模态应用与创意，6.S191 侧重深度学习基础。</dd><dt>免费吗？</dt><dd>OCW 免费开放。</dd></dl>
+<p><strong>主题标签：</strong>多模态、文本、图像、声音、视频。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-19">课程档案 19｜Stanford CME296：扩散与大型视觉模型（CME296）</h4>
+<p class="meta">学校：Stanford　·　分类：E｜视觉与生成　·　官网：<a href="https://www.youtube.com/playlist?list=PLoROMvodv4rNdy8rt2rZ4T2xM0OjADnfu">https://www.youtube.com/playlist?list=PLoROMvodv4rNdy8rt2rZ4T2xM0OjADnfu</a></p>
+<p><strong>解决什么问题：</strong>扩散模型与大规模视觉模型的理论与实现。</p>
+<p><strong>可用材料／版本：</strong>官方视频合集；此处不标授课年。</p>
+<p><strong>版本说明：</strong>官方视频合集。</p>
+<p><strong>前置知识：</strong>深度学习基础。</p>
+<p><strong>适合谁：</strong>想深入扩散模型与视觉生成的人。</p>
+<p><strong>不适合谁：</strong>零基础入门者。</p>
+<p><strong>第一步：</strong>从视频合集第一讲开始，配合 6.S184 的实验。</p>
+<p><strong>真实反馈：</strong>视频合集形式，可按主题跳学。</p>
+<p><strong>讲座主题（5 讲）：</strong></p><ol><li>扩散模型导论</li><li>DDPM</li><li>无条件/条件生成</li><li>大规模视觉模型</li><li>应用</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>无公开作业</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>与 6.S184 关系？</dt><dd>两者互补：6.S184 有实验与笔记，CME296 有斯坦福视角的视频合集。</dd></dl>
+<p><strong>主题标签：</strong>扩散模型、视觉模型、DDPM、生成模型。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

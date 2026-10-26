@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷二十三｜FAQ 大全（课程常见问答汇总）</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷二十三｜FAQ 大全（课程常见问答汇总）</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷二十三｜FAQ 大全（课程常见问答汇总）</h3>
+<p>汇总全部课程档案中的常见问答，按课程分组；再补充通用学习 FAQ，回答选课与学习中反复出现的问题。</p>
+<h4>23.01 MIT Building with AI 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>没有编程经验能学吗？<br><strong>A：</strong>官方明确不预设编程经验，但需要带着具体任务来。</p>
+<p class="quiz"><strong>Q：</strong>五个模块分别是什么？<br><strong>A：</strong>Agent、AI 编程、数据抓取清洗、可视化、基础模型与微调。</p>
+<p class="quiz"><strong>Q：</strong>学完能做什么？<br><strong>A：</strong>把一个具体的科研或办公任务转成可重复执行的 AI 流程。</p>
+<h4>23.02 MIT 6.S191 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>听众可以旁听吗？<br><strong>A：</strong>所有听众欢迎旁听；2026 版为 3 学分 P/D/F 课程，基于项目提案完成度评分。</p>
+<p class="quiz"><strong>Q：</strong>先修要求是什么？<br><strong>A：</strong>非常基础的线性代数与微积分（矩阵乘法、求导、链式法则），Python 熟悉是加分项。</p>
+<p class="quiz"><strong>Q：</strong>材料开源吗？<br><strong>A：</strong>全部开源免费，MIT License；引用需标注 © Alexander Amini and Ava Amini。</p>
+<h4>23.03 Stanford CS224G 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>有公开录播吗？<br><strong>A：</strong>无讲课录播；公开的是讲义与部分代码。</p>
+<p class="quiz"><strong>Q：</strong>适合什么人？<br><strong>A：</strong>已有 Python 基础、想直接做 LLM 应用工程的人。</p>
+<h4>23.04 Stanford CS224U 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>可以完全线上异步学吗？<br><strong>A：</strong>可以；课程全部可在线异步完成，课堂有录播，核心内容通过 slides、视频与 notebook 交付。</p>
+<p class="quiz"><strong>Q：</strong>bakeoff 是什么？<br><strong>A：</strong>开放式作业：同一任务上提交自己的系统参与对比，强调实验方法。</p>
+<p class="quiz"><strong>Q：</strong>适合评估新手吗？<br><strong>A：</strong>适合；课程把行为评估与实验方法作为核心模块。</p>
+<h4>23.05 Stanford CS329A 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>需要什么基础？<br><strong>A：</strong>已有 LLM 基础，愿意读论文与做对照实验。</p>
+<p class="quiz"><strong>Q：</strong>课程风格如何？<br><strong>A：</strong>以最新研究论文为主线，邀请学界与业界 speaker，做原创研究项目。</p>
+<p class="quiz"><strong>Q：</strong>和 CS224U 的区别？<br><strong>A：</strong>CS224U 侧重 NLU 与评估方法；CS329A 侧重 Agent 自我改进与反馈机制。</p>
+<h4>23.06 MIT 6.7960 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>和 6.S191 关系？<br><strong>A：</strong>6.S191 是短程入门，6.7960 是一学期系统课，两者可互补。</p>
+<p class="quiz"><strong>Q：</strong>免费吗？<br><strong>A：</strong>OCW 完全免费开放。</p>
+<h4>23.07 Stanford CS229 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>需要什么基础？<br><strong>A：</strong>线性代数、概率与微积分。</p>
+<p class="quiz"><strong>Q：</strong>公开材料有哪些？<br><strong>A：</strong>官方公开视频；校内讲义与作业需登录。</p>
+<h4>23.08 Stanford CS221 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>和 CS229 关系？<br><strong>A：</strong>CS229 重统计学习，CS221 重搜索/推理/决策框架。</p>
+<p class="quiz"><strong>Q：</strong>适合 RL 前置吗？<br><strong>A：</strong>CS224R 官方建议参考 CS221 的 MDP 与 RL 讲座。</p>
+<h4>23.09 Stanford CS230 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>和 CS229 区别？<br><strong>A：</strong>CS229 是机器学习基础，CS230 聚焦深度学习应用。</p>
+<p class="quiz"><strong>Q：</strong>有 Coursera 版？<br><strong>A：</strong>有配套 Coursera 组件，可灵活学习。</p>
+<h4>23.10 Stanford CME295 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>和 CS336 的区别？<br><strong>A：</strong>CME295 重框架综述与系统，CS336 重从零实现与训练。</p>
+<p class="quiz"><strong>Q：</strong>2026 版何时开？<br><strong>A：</strong>2026 版计划 9 月 25 日开课；已公开的是 2025 版。</p>
+<p class="quiz"><strong>Q：</strong>视频在哪里？<br><strong>A：</strong>Stanford 官方频道可见 2025 秋季系列 9 个视频。</p>
+<h4>23.11 Stanford CS224N 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>公开视频是哪个版本？<br><strong>A：</strong>官网指向的免费完整 YouTube 录播为 2024 版；Winter 2026 校内录播需登录。</p>
+<p class="quiz"><strong>Q：</strong>作业占比？<br><strong>A：</strong>4 次作业合计 48%；期末项目 49%。</p>
+<p class="quiz"><strong>Q：</strong>可以没有 CS229 吗？<br><strong>A：</strong>可以，但梯度相关作业会更吃力。</p>
+<p class="quiz"><strong>Q：</strong>项目做什么？<br><strong>A：</strong>默认项目是实现迷你 GPT-2；也可自定义项目。</p>
+<h4>23.12 Stanford CS336 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>需要多少算力？<br><strong>A：</strong>后续作业涉及 GPU 与分布式训练，先看作业说明再安排。</p>
+<p class="quiz"><strong>Q：</strong>和 CME295 区别？<br><strong>A：</strong>CS336 以大量实现为主，CME295 以框架综述为主。</p>
+<p class="quiz"><strong>Q：</strong>讲师是谁？<br><strong>A：</strong>Percy Liang 与 Tatsunori Hashimoto。</p>
+<h4>23.13 MIT EfficientML 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>2025 秋开课吗？<br><strong>A：</strong>2025 秋因 Song Han 教授休假不开课；公开的是 Fall 2024 全套。</p>
+<p class="quiz"><strong>Q：</strong>先修要求严格吗？<br><strong>A：</strong>官方要求 6.191 + 6.390，可用同等经历申请。</p>
+<p class="quiz"><strong>Q：</strong>适合什么人？<br><strong>A：</strong>会训练或运行模型、关心延迟与成本的人。</p>
+<h4>23.14 Stanford CS224R 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>和 CS234 区别？<br><strong>A：</strong>两者互补、互不为前置；CS224R 更偏应用与深度学习，重机器人/语言建模用例。</p>
+<p class="quiz"><strong>Q：</strong>前置要求？<br><strong>A：</strong>CS229 或同等、深度学习基础、RL 基础。</p>
+<p class="quiz"><strong>Q：</strong>公开视频？<br><strong>A：</strong>公开录播入口指向 2025 版；官方频道合集 19 个视频。</p>
+<h4>23.15 Stanford CS329H 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>和 CS329A 区别？<br><strong>A：</strong>CS329A 覆盖 Agent 自我改进；CS329H 聚焦从人类偏好学习。</p>
+<p class="quiz"><strong>Q：</strong>需要 RL 基础吗？<br><strong>A：</strong>有帮助但非硬性要求。</p>
+<h4>23.16 Stanford CS25 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>课程性质？<br><strong>A：</strong>研究者专题研讨，非系统训练课程。</p>
+<p class="quiz"><strong>Q：</strong>在哪里看？<br><strong>A：</strong>官网 recordings 页面有历届录播。</p>
+<h4>23.17 Stanford CS231N 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>需要什么基础？<br><strong>A：</strong>Python 与基础机器学习。</p>
+<p class="quiz"><strong>Q：</strong>公开材料？<br><strong>A：</strong>2025 官方视频公开。</p>
+<h4>23.18 MIT MAS.S60 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>和 6.S191 区别？<br><strong>A：</strong>MAS.S60 侧重多模态应用与创意，6.S191 侧重深度学习基础。</p>
+<p class="quiz"><strong>Q：</strong>免费吗？<br><strong>A：</strong>OCW 免费开放。</p>
+<h4>23.19 MIT 6.S184 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>课程笔记？<br><strong>A：</strong>课程笔记是主干，自包含解释全部内容，可引用 arXiv 2506.02070。</p>
+<p class="quiz"><strong>Q：</strong>需要数学基础？<br><strong>A：</strong>线性代数、多元微积分、概率；Python/PyTorch 基础。</p>
+<p class="quiz"><strong>Q：</strong>最终产出？<br><strong>A：</strong>亲手构建一个潜空间扩散模型。</p>
+<h4>23.20 Stanford CME296 常见问答</h4>
+<p class="quiz"><strong>Q：</strong>与 6.S184 关系？<br><strong>A：</strong>两者互补：6.S184 有实验与笔记，CME296 有斯坦福视角的视频合集。</p>
+<h4>通用学习 FAQ</h4>
+<p class="quiz"><strong>Q：</strong>课程太多，选哪门入门？<br><strong>A：</strong>按文章 30 秒选择题：不写代码从 Building with AI 开始；会 Python 从 6.S191 开始；会 PyTorch 从 CS336 开始。</p>
+<p class="quiz"><strong>Q：</strong>可以同时学多门吗？<br><strong>A：</strong>不建议。每门课的作业与实验都需要完整时间块；先完整学完一门，再进入下一门，比同时开三门的留存率更高。</p>
+<p class="quiz"><strong>Q：</strong>免费课程和付费证书有什么区别？<br><strong>A：</strong>内容通常相同；付费证书提供结业证明与平台支持，但核心学习价值在讲义与作业本身。</p>
+<p class="quiz"><strong>Q：</strong>需要先修完数学才能学吗？<br><strong>A：</strong>不需要。各课的前置要求只是线代与微积分的基本操作，课程会沿途解释；缺什么补什么即可。</p>
+<p class="quiz"><strong>Q：</strong>作业太难做不完怎么办？<br><strong>A：</strong>先做能独立完成的部分，再对照参考实现理解差距；记录失败点比刷完作业更重要。</p>
+<p class="quiz"><strong>Q：</strong>论文要不要每篇精读？<br><strong>A：</strong>不必。先读摘要与图表建立大局观，再按需深读与你项目直接相关的 3-5 篇。</p>
+<p class="quiz"><strong>Q：</strong>学完后如何检验自己？<br><strong>A：</strong>用卷十题库自测；能向同事在两分钟内讲清一个概念，并复现一个实验，才算真正掌握。</p>
+<p class="quiz"><strong>Q：</strong>如何在简历上体现这些课程？<br><strong>A：</strong>列出完成的具体项目与可复现产出（GitHub 链接），比列出课程名称更有说服力。</p>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷二十｜课程 × 术语 × 作业 三维索引</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷二十｜课程 × 术语 × 作业 三维索引</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷二十｜课程 × 术语 × 作业 三维索引</h3>
+<p>以课程为主轴，列出每门课程的主题标签、讲座主题、作业清单，并将课程标签映射到术语词典，构成“想学什么—去哪个课—做什么作业”的三维导航。</p>
+<p class="rel"><strong>MIT Building with AI：用 AI 搭建（Building with AI）</strong><br>课程目标：面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行的 Agent 工作流：查找资助机会、整理材料、生成演示文稿等。<br>讲座主题（6 讲）：Agent 工作流入门；AI 辅助编程；数据抓取与清洗；数据可视化；基础模型与微调；把任务变成可重复执行的流程<br>作业与实验（3 项）：模块练习：把一个真实任务拆成可重复执行的流程；Agent 工作流演示；生成式演示文稿实践<br>关联术语（14 条）：提示工程、基础模型、Agent、多智能体、自改进 Agent、代理基准、智能体、委托代理问题、工作流引擎、自主智能体、智能体循环、异常检测智能体、监控智能体、调度智能体<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>MIT 6.S191：深度学习导论（MIT 6.S191）</strong><br>课程目标：短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模型、强化学习、LLM 微调串起来。<br>讲座主题（9 讲）：Intro to Deep Learning；Deep Sequence Modeling；Deep Computer Vision；Deep Generative Modeling；Deep Reinforcement Learning；New Frontiers；The Three Laws of AI；AI for Science…<br>作业与实验（4 项）：Software Lab 1: Deep Learning in Python; Music Generation；Software Lab 2: Facial Detection Systems；Software Lab 3: Fine-Tune an LLM, You Must!；Final Project: 提案竞争 + 评委反馈<br>关联术语（14 条）：逆强化学习、离线强化学习、元强化学习、目标条件强化学习、分层强化学习、人类反馈强化学习、神经网络、卷积神经网络、基于模型的强化学习、多智能体强化学习、神经网络的哈德玛积、深度学习、课程强化学习、最大熵逆强化学习<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS224G：LLM 应用工程（CS224G）</strong><br>课程目标：把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工程与评估。<br>讲座主题（6 讲）：LLM 应用总览；提示工程；RAG 与检索；Agent 系统设计；评估与测试；生产部署<br>作业与实验（2 项）：讲义配套代码实验；LLM 应用原型<br>关联术语（14 条）：提示工程、大语言模型、检索增强生成、RAG 评估、Agent、推理时搜索、多智能体、自改进 Agent、评估框架、LLM 作为裁判、人工评估、评估集、批量评估、单元测试式评估<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS224U：自然语言理解（CS224U）</strong><br>课程目标：做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为评估与实验方法。<br>讲座主题（9 讲）：Course introduction and overview；Contextual word representations；Diffusion objectives for text；Fantastic language models and how to build them；Information retrieval；In-context learning；Advanced behavioral evaluation of NLU models；Analysis methods for NLU…<br>作业与实验（6 项）：Assign/bakeoff 1: 域自适应监督情感分析；Assign/bakeoff 2: 检索增强上下文学习；Assign/bakeoff 3: 行为评估；Lit review 文献综述；Experimental protocol 实验方案；Final paper 期末论文<br>关联术语（6 条）：上下文学习、检索增强生成、RAG 评估、上下文学习示例选择、检索增强视觉、上下文学习评估<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS329A：自我改进的 AI Agent（CS329A）</strong><br>课程目标：Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、搜索+LLM、训练时 RL 缩放、工具/代码/记忆、规划与 Agent 评估。<br>讲座主题（10 讲）：Self-improvement techniques for LLMs；Constitutional AI；Verifiers；Scaling test-time compute；Combining search with LLMs；Train time scaling with RL；Tool use and code feedback；Memory and multimodal orchestration…<br>作业与实验（2 项）：原始研究项目（coding agents / research assistants / robotics 应用）；课堂论文阅读讨论<br>关联术语（14 条）：离线强化学习、元强化学习、目标条件强化学习、分层强化学习、推理时计算、人类反馈强化学习、Agent、记忆、短期记忆、长期记忆、规划、验证器、多智能体、自改进 Agent<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>MIT 6.7960：学期级深度学习（6.7960）</strong><br>课程目标：一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型与实验。<br>讲座主题（8 讲）：深度学习总览；神经网络基础；反向传播；卷积网络；序列模型；生成模型；优化与泛化；前沿主题<br>作业与实验（2 项）：OCW 习题集；课程项目<br>关联术语（4 条）：神经网络、卷积神经网络、神经网络的哈德玛积、深度学习<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS229：机器学习（CS229）</strong><br>课程目标：机器学习的数学基础：监督学习、无监督学习、学习理论、优化。<br>讲座主题（10 讲）：线性回归与梯度下降；分类与逻辑回归；广义线性模型；生成学习算法；支持向量机；学习理论；无监督学习；EM 算法…<br>作业与实验（2 项）：编程作业：回归、分类、SVM、无监督；期中与期末<br>关联术语（14 条）：无分类器引导、分类器引导、无监督学习、线性回归、支持向量机、图像分类、零样本分类、合页损失、分类阈值、布鲁姆分类法、软间隔 SVM、多标签分类、遥感图像分类、分类价值网络<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS221：人工智能：搜索、推理与决策（CS221）</strong><br>课程目标：AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。<br>讲座主题（8 讲）：搜索；约束满足问题；博弈；MDP；强化学习；贝叶斯网络；概率推理；学习与决策<br>作业与实验（2 项）：编程作业：搜索、CSP、博弈、MDP；期末项目<br>关联术语（14 条）：马尔可夫决策过程、逆强化学习、离线强化学习、元强化学习、目标条件强化学习、分层强化学习、推理时计算、人类反馈强化学习、推理时搜索、神经架构搜索、推理、束搜索、决策树、多步骤推理<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS230：深度学习概览（CS230）</strong><br>课程目标：深度学习的整体概览：CNN、RNN、Transformer、调参与应用。<br>讲座主题（6 讲）：深度学习导论；卷积网络；RNN 与序列；Transformer；调参实践；项目报告<br>作业与实验（3 项）：编程作业；期中项目；期末项目<br>关联术语（6 条）：Transformer、扩散 Transformer、Hugging Face Transformers、卷积神经网络、视觉 Transformer、深度学习<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CME295：大模型知识框架（CME295）</strong><br>课程目标：先把 LLM 的知识骨架搭起来：Transformer、训练、推理、RAG 与 Agent 的关系。<br>讲座主题（8 讲）：Transformer 总图；注意力与位置编码；训练目标与数据；推理与解码；RAG 与检索；Agent 与工具使用；评估与对齐；系统与部署<br>作业与实验（3 项）：公开考试材料自测；图解速查表；Transformer 数据流复述练习<br>关联术语（14 条）：训练集、预训练、推理时计算、大语言模型、Transformer、旋转位置编码、检索增强生成、RAG 评估、Agent、推理时搜索、多智能体、自改进 Agent、扩散 Transformer、分布式训练<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS224N：自然语言处理与深度学习（CS224N）</strong><br>课程目标：理解语言模型的主干：词向量、神经网络、Attention、Transformer、预训练与评估。<br>讲座主题（12 讲）：History of NLP；Word Vectors；Backpropagation and Neural Network Basics；Language Models and RNNs；Transformers；Pretraining (Scaling, Systems, Data)；Post-training (RLHF, SFT, DPO)；Efficient Adaptation (Prompting + PEFT)…<br>作业与实验（5 项）：Assignment 1: 词向量导论；Assignment 2: 神经网络基础、张量导数、依存句法分析；Assignment 3: 自注意力与 Transformer；Assignment 4: LLM 基准测试与评估；Final Project: 默认实现迷你 GPT-2 或自定义项目（提案8%+里程碑6%+海报3%+报告32%）<br>关联术语（14 条）：预训练、推理时计算、人类反馈强化学习、Transformer、词向量、检索增强生成、RAG 评估、推理时搜索、评估框架、扩散 Transformer、推理、人工评估、评估集、多步骤推理<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS336：从零训练语言模型（CS336）</strong><br>课程目标：真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、数据、评估和对齐。<br>讲座主题（7 讲）：Tokenizer；模型架构；优化器；系统优化；数据；评估；对齐<br>作业与实验（5 项）：Assignment 1: tokenizer 与最小模型；Assignment 2: 模型与优化器；Assignment 3: 系统优化；Assignment 4: 数据与评估；Assignment 5: 对齐<br>关联术语（14 条）：优化器、数据集、对齐、大语言模型、语言模型、掩码语言模型、自回归语言模型、向量数据库、RAG 评估、评估框架、数据并行、数据并行规模、训练数据、数据清洗<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>MIT EfficientML：高效深度学习计算（6.5940 / EfficientML）</strong><br>课程目标：模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式训练、梯度压缩、端上微调，以及 LLM 与扩散模型加速。<br>讲座主题（10 讲）：Efficient AI Computing 总览；模型剪枝；量化；神经架构搜索；分布式训练；数据/模型并行；梯度压缩；端上微调…<br>作业与实验（4 项）：模型压缩实验；量化实验；Llama2-7B 笔记本部署；课程项目<br>关联术语（14 条）：模型剪枝、权重量化、模型压缩、分布式训练、Alpha-Beta 剪枝、量化感知训练、训练后量化、动态量化、静态量化、混合精度量化、分组量化、激活量化、权重量化位宽、奇异值剪枝<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS224R：深度强化学习（CS224R）</strong><br>课程目标：模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励学习、RL for LLM、元 RL、分层 RL 与机器人应用。<br>讲座主题（18 讲）：Course intro + MDPs；Imitation Learning；Policy Gradients；Actor-Critic Methods；Off-Policy Actor Critic；Q-learning；Offline RL；Reward Learning…<br>作业与实验（6 项）：Homework 1-4（概念 + PyTorch 编码）；Project Survey；Project Proposal；Project Milestone；Poster Session；Final Project Report<br>关联术语（14 条）：模仿学习、逆强化学习、策略梯度、离线强化学习、奖励学习、元强化学习、目标条件强化学习、分层强化学习、人类反馈强化学习、RLHF、基于模型的强化学习、多智能体强化学习、机器人账户、策略梯度定理<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS329H：从人类偏好学习（CS329H）</strong><br>课程目标：人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。<br>讲座主题（6 讲）：偏好建模；RLHF；DPO；反馈数据；对齐评估；前沿主题<br>作业与实验（2 项）：阅读讨论；研究项目<br>关联术语（14 条）：人类反馈强化学习、直接偏好优化、对齐、图文对齐、对齐税、跨模态对齐、对齐微调、RLHF、安全对齐、价值观对齐、错误反馈、反馈、建设性反馈、反馈循环<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS25：研究者专题研讨（CS25）</strong><br>课程目标：以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀请研究者讲解最新进展。<br>讲座主题（2 讲）：历届研究者专题；V6 精选录播<br>作业与实验（1 项）：无作业；研讨参与<br>关联术语（11 条）：大语言模型、Transformer、推理时搜索、扩散 Transformer、LLM 作为裁判、Hugging Face Transformers、vLLM、视觉 Transformer、帕累托前沿、研讨会、评估AI评测前沿<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CS231N：计算机视觉（CS231N）</strong><br>课程目标：视觉任务的深度学习：CNN、视觉 Transformer、目标检测、图像生成。<br>讲座主题（7 讲）：图像分类与 CNN；反向传播与优化；视觉 Transformer；目标检测与分割；生成模型与 GAN；自监督视觉；视频理解<br>作业与实验（3 项）：图像分类；目标检测；期末项目<br>关联术语（6 条）：目标检测、图像生成、卷积神经网络、视觉 Transformer、可控图像生成、图像生成管线<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>MIT MAS.S60：如何 AI 万物（MAS.S60）</strong><br>课程目标：多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种模态。<br>讲座主题（6 讲）：多模态 AI 总览；文本处理；图像处理；声音处理；视频处理；项目实践<br>作业与实验（1 项）：动手项目系列<br>关联术语（14 条）：文本摘要、文本蕴含、多模态、图像编码器、图像分类、图像生成、视频生成、文生视频、图像修复、图像超分、文本到语音、文本到 SQL、多模态基准、图像描述<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>MIT 6.S184：流匹配与扩散模型（6.S184）</strong><br>课程目标：理解图像/视频生成的数学与实现：随机微分方程、Fokker-Planck 方程、流匹配、评分匹配、无分类器引导、潜空间与离散扩散。<br>讲座主题（6 讲）：Flow and Diffusion Models；Flow Matching；Score Functions and Score Matching；Classifier-free Guidance；Latent Spaces and Neural Network Architectures；Discrete Diffusion Models<br>作业与实验（4 项）：Lab 1: Working with ODEs and SDEs；Lab 2: Flow Matching and Score Matching；Lab 3: Diffusion Transformer and VAEs；期末：从零搭建潜空间扩散模型<br>关联术语（11 条）：扩散模型、评分匹配、去噪评分匹配、流匹配、随机微分方程、变分自编码器、潜扩散模型、条件流匹配、潜在扩散模型、扩散模型训练、蒸馏扩散模型<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+<p class="rel"><strong>Stanford CME296：扩散与大型视觉模型（CME296）</strong><br>课程目标：扩散模型与大规模视觉模型的理论与实现。<br>讲座主题（5 讲）：扩散模型导论；DDPM；无条件/条件生成；大规模视觉模型；应用<br>作业与实验（1 项）：无公开作业<br>关联术语（7 条）：扩散模型、去噪扩散概率模型、潜扩散模型、DDPM、潜在扩散模型、扩散模型训练、蒸馏扩散模型<br>导航建议：先读卷四/卷五课程档案确定是否适合自己，再按卷十四逐讲导读进入讲座，遇到不认识的术语回到卷六卡片。</p>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

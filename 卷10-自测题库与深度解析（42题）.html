@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷十｜自测题库与深度解析（42 题）</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷十｜自测题库与深度解析（42 题）</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷十｜自测题库与深度解析（42 题）</h3>
+<p>题目来自文章事实与课程官网信息，题型含判断、选择与简答，每题附答案与解析，并给出可核验来源。</p>
+<p class="quiz"><strong>第 01 题（判断）｜6.S191</strong><br>题：MIT 6.S191 是麻省理工学院的深度学习入门课程，其 2026 版公开了讲座、slides 与代码。<br>答：对<br>解析：官网确认 2026 版公开讲座、slides、代码与实验，内容覆盖神经网络、序列、生成模型、强化学习与 LLM 微调。<br>来源：https://introtodeeplearning.com/</p>
+<p class="quiz"><strong>第 02 题（判断）｜CS224N</strong><br>题：Stanford CS224N 的公开免费完整录播是 Winter 2026 版。<br>答：错<br>解析：官网指向的免费完整 YouTube 录播是 2024 版；Winter 2026 讲义与作业公开，但校内录播需要登录。<br>来源：https://web.stanford.edu/class/cs224n/</p>
+<p class="quiz"><strong>第 03 题（判断）｜CS336</strong><br>题：CS336 是一门以大量动手实现为主的课程，从 tokenizer 一路做到对齐。<br>答：对<br>解析：2026 春季版官方视频入口与五组作业，覆盖 tokenizer、模型与优化器、系统优化、数据、评估与对齐；真实反馈称其不是轻量视频课。<br>来源：https://cs336.stanford.edu/</p>
+<p class="quiz"><strong>第 04 题（判断）｜6.S184</strong><br>题：MIT 6.S184 的最终目标是让学生从零构建一个潜空间扩散模型。<br>答：对<br>解析：官网明确课程结束前学生将构建一个 latent diffusion model，并配有三个实验与自包含课程笔记。<br>来源：https://diffusion.csail.mit.edu/2026/</p>
+<p class="quiz"><strong>第 05 题（判断）｜CS329A</strong><br>题：CS329A 是研究型课程，适合只想照着步骤装工具的学习者。<br>答：错<br>解析：CS329A 面向愿意读论文、做对照实验的研究型学习者；文章明确说它不是照着点按钮的工具教程。<br>来源：https://cs329a.stanford.edu/</p>
+<p class="quiz"><strong>第 06 题（判断）｜EfficientML</strong><br>题：MIT EfficientML 课程的实践目标包含在笔记本上部署 Llama2-7B。<br>答：对<br>解析：官网写明学生将获得模型压缩技术实践经验，并部署 LLM（Llama2-7B）到笔记本。<br>来源：https://hanlab.mit.edu/courses/2024-fall-65940</p>
+<p class="quiz"><strong>第 07 题（判断）｜CS224R</strong><br>题：CS224R 与 CS234 是前置关系，必须先学 CS234 才能选 CS224R。<br>答：错<br>解析：官网说明两者互补、互不为前置；CS224R 更偏应用与深度学习，强调机器人与语言模型用例。<br>来源：https://cs224r.stanford.edu/spring_2025/</p>
+<p class="quiz"><strong>第 08 题（判断）｜CS224U</strong><br>题：CS224U 的 2023 公开版完全支持在线异步学习。<br>答：对<br>解析：官网写明课程可完全在线异步完成，课堂有录播，核心内容通过 slides、视频与 Python notebooks 交付。<br>来源：https://web.stanford.edu/class/cs224u/</p>
+<p class="quiz"><strong>第 09 题（判断）｜Building with AI</strong><br>题：Building with AI 课程官方明确预设了编程经验。<br>答：错<br>解析：官方明确不预设编程经验；文章建议带着一个具体任务来学，先弄懂任务如何变成可重复执行的流程。<br>来源：https://web.mit.edu/webcast/computing/s26/0926/1.html</p>
+<p class="quiz"><strong>第 10 题（判断）｜CME295</strong><br>题：CME295 的 2025 公开系列共有 9 个视频，配有 slides、图解速查表和考试材料。<br>答：对<br>解析：文章写明 2025 秋季系列官方频道可见 9 个视频，官网还有 slides、图解速查表和考试材料。<br>来源：https://cme295.stanford.edu/</p>
+<p class="quiz"><strong>第 11 题（选择）｜Building with AI</strong><br>题：想不写代码把 AI 用到工作中，文章建议先选哪门课？<br>答：MIT Building with AI<br>解析：文章 30 秒选择题第一项：不写代码，想把 AI 用到工作中，从 Building with AI 的第一个模块开始。<br>来源：https://web.mit.edu/webcast/computing/s26/0926/1.html</p>
+<p class="quiz"><strong>第 12 题（选择）｜CS336</strong><br>题：已经会 PyTorch、想亲手训练语言模型，文章建议先选哪门？<br>答：Stanford CS336<br>解析：30 秒选择题：已经会 PyTorch，想亲手训练语言模型，选 CS336，但要给作业留出大块时间。<br>来源：https://cs336.stanford.edu/</p>
+<p class="quiz"><strong>第 13 题（选择）｜CS224U</strong><br>题：已经做过 LLM 应用、想让结果更可靠，文章建议看哪门课？<br>答：CS224U<br>解析：30 秒选择题：看 CS224U 的检索与评估内容，再按兴趣进入 CS329A。<br>来源：https://web.stanford.edu/class/cs224u/</p>
+<p class="quiz"><strong>第 14 题（选择）｜6.S191</strong><br>题：MIT 6.S191 第一份软件实验 Lab 1 的主题是什么？<br>答：Deep Learning in Python; Music Generation<br>解析：官网课程表显示 Software Lab 1 主题为深度学习入门与音乐生成。<br>来源：https://introtodeeplearning.com/</p>
+<p class="quiz"><strong>第 15 题（选择）｜CS224N</strong><br>题：CS224N Winter 2026 的四份作业分别对应哪些主题？<br>答：词向量、神经网络基础与依存句法、自注意力与 Transformer、LLM 基准测试与评估<br>解析：官网作业列表：A1 词向量导论，A2 神经网络基础/张量导数/依存句法，A3 自注意力与 Transformer，A4 LLM 基准测试与评估。<br>来源：https://web.stanford.edu/class/cs224n/</p>
+<p class="quiz"><strong>第 16 题（选择）｜CS224N</strong><br>题：CS224N 期末默认项目要求实现什么？<br>答：一个极简版 GPT-2<br>解析：官网写明默认期末项目是实现极简版 GPT-2（先前基于 BERT，现已替换）。<br>来源：https://web.stanford.edu/class/cs224n/</p>
+<p class="quiz"><strong>第 17 题（选择）｜6.S184</strong><br>题：MIT 6.S184 三个实验分别围绕什么？<br>答：ODE/SDE、流匹配与评分匹配、扩散 Transformer 与 VAE<br>解析：官网 Lab 列表：Lab1 使用 ODE 与 SDE，Lab2 流匹配与评分匹配，Lab3 扩散 Transformer 与 VAE。<br>来源：https://diffusion.csail.mit.edu/2026/</p>
+<p class="quiz"><strong>第 18 题（选择）｜CS224R</strong><br>题：CS224R Spring 2025 的讲师是谁？<br>答：Chelsea Finn<br>解析：官网显示讲师为 Chelsea Finn 教授；公开录播入口指向 2025 版，官方频道合集 19 个视频。<br>来源：https://cs224r.stanford.edu/spring_2025/</p>
+<p class="quiz"><strong>第 19 题（选择）｜CS329A</strong><br>题：CS329A 的课程主题是什么？<br>答：自我改进的 AI Agent（Self-Improving AI Agents）<br>解析：官网标题即 Self-Improving AI Agents，覆盖宪法式 AI、验证器、推理时计算、搜索+LLM、训练时 RL 缩放等。<br>来源：https://cs329a.stanford.edu/</p>
+<p class="quiz"><strong>第 20 题（选择）｜CS224U</strong><br>题：CS224U 的三次 bakeoff 作业分别围绕什么？<br>答：域自适应情感分析、检索增强上下文学习、行为评估<br>解析：官网课程表：bakeoff 1 域自适应监督情感分析，bakeoff 2 检索增强上下文学习，bakeoff 3 高级行为评估。<br>来源：https://web.stanford.edu/class/cs224u/</p>
+<p class="quiz"><strong>第 21 题（简答）｜6.S191</strong><br>题：简述 MIT 6.S191 的定位与适合人群。<br>答：6.S191 是 MIT 的深度学习入门 bootcamp，定位为高强度、快速掌握基础；适合愿意写 Python、具备基本线代与微积分的人，实验驱动、覆盖 NLP、视觉、生物、LLM 与生成式 AI。<br>解析：综合官网描述：入门程序，应用涵盖 NLP、计算机视觉、生物学等，先修假设为微积分与线性代数，Python 经验有帮助但非硬性要求。<br>来源：https://introtodeeplearning.com/</p>
+<p class="quiz"><strong>第 22 题（简答）｜CME295</strong><br>题：为什么文章把 CME295 定位在“入门与从零训练之间”？<br>答：因为它比零散科普更系统、能搭起 Transformer 训练推理 RAG Agent 的框架，又不像 CS336 那样以大量实现为主；Reddit 反馈也指出它是中等深度的架构综述而非底层数学深挖。<br>解析：文章原文与 Reddit 反馈综合。<br>来源：https://cme295.stanford.edu/</p>
+<p class="quiz"><strong>第 23 题（简答）｜CS224N</strong><br>题：CS224N 作业与期末项目的分值占比分别是多少？<br>答：四次作业合计 48%（A1 6%、A2 14%、A3 14%、A4 14%），期末项目 49%（提案 8%、里程碑 6%、海报 3%、报告 32%）。<br>解析：官网 Coursework 部分。<br>来源：https://web.stanford.edu/class/cs224n/</p>
+<p class="quiz"><strong>第 24 题（简答）｜EfficientML</strong><br>题：MIT EfficientML（6.5940）覆盖哪些主题？<br>答：模型压缩、剪枝、量化、神经架构搜索、分布式训练、数据/模型并行、梯度压缩、端上微调，以及 LLM 与扩散模型加速；实验包括在笔记本部署 Llama2-7B。<br>解析：官网 Fall 2024 课程介绍。<br>来源：https://hanlab.mit.edu/courses/2024-fall-65940</p>
+<p class="quiz"><strong>第 25 题（简答）｜CS224R</strong><br>题：CS224R 的前置要求有哪些？<br>答：机器学习（CS229 或同等）、深度学习基础（反向传播、CNN、Transformer，作业用 PyTorch）、基础强化学习（MDP，可参考 CS221 或 Sutton &amp; Barto 第 3-4 章）。<br>解析：官网 Prerequisites 部分。<br>来源：https://cs224r.stanford.edu/spring_2025/</p>
+<p class="quiz"><strong>第 26 题（简答）｜6.S184</strong><br>题：6.S184 为什么要求线性代数、多元微积分与概率？<br>答：课程以随机微分方程、Fokker-Planck 方程和向量场为核心数学工具，这些都需要微积分、线代与概率基础；课程笔记自包含解释全部内容，但数学基础能显著降低门槛。<br>解析：官网介绍与课程笔记定位。<br>来源：https://diffusion.csail.mit.edu/2026/</p>
+<p class="quiz"><strong>第 27 题（简答）｜</strong><br>题：文章给“应用优先”路线安排的学习顺序是什么？<br>答：Building with AI → 做一个可重复的流程；会编程后补 CS224U 的检索与评估；进阶研究可选 CS329A。<br>解析：文章“不用全学”部分的路线建议。<br>来源：https://mp.weixin.qq.com/s/32g61eVXGyI4aGgB3xDpGA</p>
+<p class="quiz"><strong>第 28 题（简答）｜</strong><br>题：文章给“模型工程”路线安排的学习顺序是什么？<br>答：6.S191 → CME295 或 CS224N → CS336；遇到部署瓶颈再学 EfficientML；基础足够时可跳过前面的阶段。<br>解析：文章“不用全学”部分的路线建议。<br>来源：https://mp.weixin.qq.com/s/32g61eVXGyI4aGgB3xDpGA</p>
+<p class="quiz"><strong>第 29 题（简答）｜</strong><br>题：文章建议“第一周”只做哪三件事？<br>答：选一门课、打开第一讲或第一份讲义、完成一个能保存下来的小实验；用自己的话写下输入是什么、输出是什么、哪里还会失败。<br>解析：文章“第一周不要追求看完多少讲”原文。<br>来源：https://mp.weixin.qq.com/s/32g61eVXGyI4aGgB3xDpGA</p>
+<p class="quiz"><strong>第 30 题（简答）｜</strong><br>题：20 门课程按 A 到 E 五类如何划分？<br>答：A 应用与 Agent（Building with AI、CS224G、CS224U、CS329A）；B 基础（6.S191、6.7960、CS229、CS221、CS230）；C 大模型（CME295、CS224N、CS336、EfficientML）；D 反馈与研究（CS224R、CS329H、CS25）；E 视觉与生成（CS231N、MAS.S60、6.S184、CME296）。<br>解析：文章 20 门分类导航原文。<br>来源：https://mp.weixin.qq.com/s/32g61eVXGyI4aGgB3xDpGA</p>
+<p class="quiz"><strong>第 31 题（简答）｜CS224U</strong><br>题：为什么 CS224U 值得先看检索与评估？<br>答：它覆盖检索增强、上下文学习、行为评估与实验方法，配有 notebooks 与作业，能帮你从“凭感觉比较两个版本”走向“严谨比较系统的方法”。<br>解析：文章对 CS224U 的定位与学习者 Skeptric 反馈综合。<br>来源：https://web.stanford.edu/class/cs224u/</p>
+<p class="quiz"><strong>第 32 题（简答）｜CS329A</strong><br>题：CS329A 的评估与反馈方法包括哪些关键词？<br>答：推理时计算、验证器、工具与代码反馈、规划、记忆、Agent 评估；课程还涉及宪法式 AI 与训练时 RL 缩放。<br>解析：官网课程概览。<br>来源：https://cs329a.stanford.edu/</p>
+<p class="quiz"><strong>第 33 题（简答）｜CS336</strong><br>题：CS336 从哪一步开始做最合适？<br>答：先做 Assignment 1 的 tokenizer 与最小模型；后续 GPU 与分布式训练要求更高，先看作业说明再安排算力。<br>解析：文章第一步建议与官网作业结构。<br>来源：https://cs336.stanford.edu/</p>
+<p class="quiz"><strong>第 34 题（简答）｜CS224R</strong><br>题：学习 Agent 相关课程之前，为什么文章建议先补 MDP 与基础 RL？<br>答：Agent 的决策本质是状态-动作-奖励循环，MDP 是形式化框架；没有基础直接学 CS224R 等高门槛课程会吃力。<br>解析：文章对 CS224R 的门槛说明。<br>来源：https://cs224r.stanford.edu/spring_2025/</p>
+<p class="quiz"><strong>第 35 题（简答）｜6.S191</strong><br>题：6.S191 的讲师署名要求是什么？<br>答：若使用其材料（slides、labs、代码）需在每张幻灯片标注 © Alexander Amini and Ava Amini，MIT Introduction to Deep Learning（IntroToDeepLearning.com）。<br>解析：官网 FAQ 引用要求。<br>来源：https://introtodeeplearning.com/</p>
+<p class="quiz"><strong>第 36 题（简答）｜CS224U</strong><br>题：CS224U 期末要求提交什么？<br>答：期末论文（final paper），之前还有文献综述、实验方案与各 bakeoff；全程支持在线异步完成。<br>解析：官网课程表。<br>来源：https://web.stanford.edu/class/cs224u/</p>
+<p class="quiz"><strong>第 37 题（简答）｜CS224U</strong><br>题：为什么文章强调“模型案例会过时，严谨比较系统的方法仍值得学”？<br>答：课程中的具体模型与案例随研究进展更新，但评估、消融、实验协议等方法论具有长期价值，能迁移到未来的新模型。<br>解析：文章对 CS224U 的评价。<br>来源：https://web.stanford.edu/class/cs224u/</p>
+<p class="quiz"><strong>第 38 题（简答）｜CS224R</strong><br>题：CS224R 作业与项目各占多少比例？<br>答：作业合计 50%（最低分作业 5%，其余三次各 15%），项目 50%；有 6 个总迟到天数额度。<br>解析：官网 Grading 部分。<br>来源：https://cs224r.stanford.edu/spring_2025/</p>
+<p class="quiz"><strong>第 39 题（简答）｜6.S184</strong><br>题：6.S184 的课程笔记如何引用？<br>答：@misc{flowsanddiffusions2026, author={Peter Holderrieth and Ezra Erives}, title={Introduction to Flow Matching and Diffusion Models}, year={2026}, url={https://diffusion.csail.mit.edu/}, eprint={2506.02070}}<br>解析：官网引用格式。<br>来源：https://diffusion.csail.mit.edu/2026/</p>
+<p class="quiz"><strong>第 40 题（简答）｜EfficientML</strong><br>题：为什么说 EfficientML 2025 秋季不开课？<br>答：官网注明教授 Song Han 处于学术休假，因此 2025 秋不开课；公开的是 Fall 2024 全套材料。<br>解析：官网说明。<br>来源：https://hanlab.mit.edu/courses/2024-fall-65940</p>
+<p class="quiz"><strong>第 41 题（简答）｜CS224N</strong><br>题：CS224N 建议的参考书有哪些？<br>答：Jurafsky &amp; Martin《Speech and Language Processing》、Eisenstein《Natural Language Processing》、Goldberg《A Primer on Neural Network Models for NLP》、Goodfellow 等《Deep Learning》等，均可免费在线阅读。<br>解析：官网 Reference Texts 部分。<br>来源：https://web.stanford.edu/class/cs224n/</p>
+<p class="quiz"><strong>第 42 题（简答）｜</strong><br>题：文章为什么说“一周后你拥有的应该不只是十个收藏链接”？<br>答：因为文章主张把收藏转化为一个开始运转的学习项目：选一门、打开第一讲、完成一个能保存的小实验，并用自己的话记录输入输出与失败点。<br>解析：文章结尾建议。<br>来源：https://mp.weixin.qq.com/s/32g61eVXGyI4aGgB3xDpGA</p>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

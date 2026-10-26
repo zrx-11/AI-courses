@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷二十六｜课程版本时间线</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷二十六｜课程版本时间线</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷二十六｜课程版本时间线</h3>
+<p>按课程公开版本整理时间线，帮助判断讲义与作业的时效性。信息来自各课程官网与本文档课程档案中的版本字段。</p>
+<p class="rel"><strong>2024 官方视频。</strong>｜Stanford Stanford CS329H：从人类偏好学习（CS329H）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>2025 公开版；2026 版计划 9 月 25 日开课，本次推荐公开的 2025 版。</strong>｜Stanford Stanford CME295：大模型知识框架（CME295）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>2025 公开视频 + Coursera。</strong>｜Stanford Stanford CS230：深度学习概览（CS230）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>2025 官方视频。</strong>｜Stanford Stanford CS221：人工智能：搜索、推理与决策（CS221）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>2025 官方视频。</strong>｜Stanford Stanford CS231N：计算机视觉（CS231N）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>2026 模块录播；官方明确不预设编程经验。</strong>｜MIT MIT Building with AI：用 AI 搭建（Building with AI）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>2026 版讲义与代码；注意无录播。</strong>｜Stanford Stanford CS224G：LLM 应用工程（CS224G）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>2026 版（3月30日-5月25日）；历史版本可回溯 2025-2017。</strong>｜MIT MIT 6.S191：深度学习导论（MIT 6.S191）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>2026（讲师 Peter Holderrieth、Ezra Erives）；课程笔记 arXiv 2506.02070 可引用。</strong>｜MIT MIT 6.S184：流匹配与扩散模型（6.S184）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>Autumn 2025；讲师 Aakanksha Chowdhery、Azalia Mirhoseini。</strong>｜Stanford Stanford CS329A：自我改进的 AI Agent（CS329A）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>Fall 2024 OCW。</strong>｜MIT MIT 6.7960：学期级深度学习（6.7960）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>Fall 2024（讲师 Song Han；2025 秋因教授休假不开课）。</strong>｜MIT MIT EfficientML：高效深度学习计算（6.5940 / EfficientML）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>Spring 2023 公开版（讲师 Christopher Potts，TA 含 Kawin Ethayarajh）。</strong>｜Stanford Stanford CS224U：自然语言理解（CS224U）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>Spring 2025 OCW。</strong>｜MIT MIT MAS.S60：如何 AI 万物（MAS.S60）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>Spring 2025 公开版（讲师 Chelsea Finn；课程经理 John Cho）。</strong>｜Stanford Stanford CS224R：深度强化学习（CS224R）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>Spring 2026。</strong>｜Stanford Stanford CS336：从零训练语言模型（CS336）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>V6 及历届精选。</strong>｜Stanford Stanford CS25：研究者专题研讨（CS25）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>Winter 2026（讲师 Diyi Yang、Yejin Choi）；公开视频为 2024 版，勿混用新旧作业。</strong>｜Stanford Stanford CS224N：自然语言处理与深度学习（CS224N）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>历年公开视频；校内资料需登录。</strong>｜Stanford Stanford CS229：机器学习（CS229）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p class="rel"><strong>官方视频合集。</strong>｜Stanford Stanford CME296：扩散与大型视觉模型（CME296）。<br>时效提示：课程讲义随学期更新，作业与评测也随之变化；引用课程结论时，先核对版本再下判断——这也是文章提醒“模型案例会过时，方法不会过时”的实践含义。</p>
+<p>时间线仅收录已核验的课程版本；未核验或官网不可达的课程以课程档案的版本字段为准。全部 20 门课程的信息详见卷四/卷五档案。</p>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

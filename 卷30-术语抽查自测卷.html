@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷三十｜术语抽查自测卷</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷三十｜术语抽查自测卷</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷三十｜术语抽查自测卷</h3>
+<p>从全部术语中按类别抽样生成自测题：给出中文名，自答英文名、类别与一句话理解；再给出英文名反查中文名。用于整本档案学完后的总复习。</p>
+<h4>30.1 数学与统计 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：期望传播</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Expectation Propagation；类别 数学与统计；一句话理解「逐因子逼近。」；完整定义见卷六 T-3033。</p>
+<p class="quiz"><strong>2. 中文名：本征问题</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Eigenproblem；类别 数学与统计；一句话理解「矩阵的“本命问题”。」；完整定义见卷六 T-1864。</p>
+<p class="quiz"><strong>3. 中文名：剪切变换</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Shear；类别 数学与统计；一句话理解「“推歪”图形。」；完整定义见卷六 T-1860。</p>
+<p class="quiz"><strong>4. 中文名：预算平衡</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Budget Balance；类别 数学与统计；一句话理解「“不亏不赚”。」；完整定义见卷六 T-1931。</p>
+<p class="quiz"><strong>5. 中文名：广度优先搜索</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Breadth-First Search (BFS)；类别 数学与统计；一句话理解「一层层水波式地扩散。」；完整定义见卷六 T-0618。</p>
+<p class="quiz"><strong>6. 中文名：拉格朗日函数</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Lagrangian；类别 数学与统计；一句话理解「罚款版目标。」；完整定义见卷六 T-3124。</p>
+<p class="quiz"><strong>7. 中文名：时间泄漏</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Temporal Leakage；类别 数学与统计；一句话理解「“用未来数据练过去”。」；完整定义见卷六 T-2006。</p>
+<p class="quiz"><strong>8. 中文名：激励相容</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Incentive Compatibility；类别 数学与统计；一句话理解「“说真话最划算”的机制。」；完整定义见卷六 T-1929。</p>
+<h4>30.2 机器学习 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：弹性网络</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Elastic Net；类别 机器学习；一句话理解「“两种惩罚都要一点”。」；完整定义见卷六 T-1529。</p>
+<p class="quiz"><strong>2. 中文名：汉明距离</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Hamming Distance；类别 机器学习；一句话理解「几个位不一样。」；完整定义见卷六 T-4216。</p>
+<p class="quiz"><strong>3. 中文名：类别权重</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Class Weight；类别 机器学习；一句话理解「“给少数派加权重”。」；完整定义见卷六 T-1554。</p>
+<p class="quiz"><strong>4. 中文名：列表排序</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Listwise Ranking；类别 机器学习；一句话理解「整串一起排。」；完整定义见卷六 T-4208。</p>
+<p class="quiz"><strong>5. 中文名：多项式回归</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Polynomial Regression；类别 机器学习；一句话理解「“用弯线拟合”。」；完整定义见卷六 T-1530。</p>
+<p class="quiz"><strong>6. 中文名：随机森林</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Random Forest；类别 机器学习；一句话理解「一群各看各的树的森林投票。」；完整定义见卷六 T-0290。</p>
+<p class="quiz"><strong>7. 中文名：少数类</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Minority Class；类别 机器学习；一句话理解「“人少的一方”。」；完整定义见卷六 T-1553。</p>
+<p class="quiz"><strong>8. 中文名：加权损失</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Weighted Loss；类别 机器学习；一句话理解「加权计错。」；完整定义见卷六 T-4202。</p>
+<h4>30.3 深度学习 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：池化层</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Pooling Layer；类别 深度学习；一句话理解「缩小。」；完整定义见卷六 T-5455。</p>
+<p class="quiz"><strong>2. 中文名：损失权重搜索</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Loss Weight Search；类别 深度学习；一句话理解「损失权重调参。」；完整定义见卷六 T-5575。</p>
+<p class="quiz"><strong>3. 中文名：推理并行数</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Inference Parallelism；类别 深度学习；一句话理解「几个一起。」；完整定义见卷六 T-5774。</p>
+<p class="quiz"><strong>4. 中文名：软加</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Softplus；类别 深度学习；一句话理解「平滑正。」；完整定义见卷六 T-5542。</p>
+<p class="quiz"><strong>5. 中文名：零点量化</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Zero-point Quantization；类别 深度学习；一句话理解「带零点。」；完整定义见卷六 T-5637。</p>
+<p class="quiz"><strong>6. 中文名：深度可分离卷积</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Depthwise Separable Convolution；类别 深度学习；一句话理解「先各自打理，再统一汇总，省力气。」；完整定义见卷六 T-0556。</p>
+<p class="quiz"><strong>7. 中文名：显存规划工具</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Memory Planner Tool；类别 深度学习；一句话理解「算显存工具。」；完整定义见卷六 T-5714。</p>
+<p class="quiz"><strong>8. 中文名：梯度类激活图</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Grad-CAM；类别 深度学习；一句话理解「用梯度看哪最像。」；完整定义见卷六 T-5497。</p>
+<h4>30.4 自然语言处理 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：数据一致性校验</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Data Consistency Check；类别 自然语言处理；一句话理解「对没对上。」；完整定义见卷六 T-5338。</p>
+<p class="quiz"><strong>2. 中文名：词向量</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Word Vector / Word Embedding；类别 自然语言处理；一句话理解「把词变成一串数字，语义相近的数字也相近。」；完整定义见卷六 T-0132。</p>
+<p class="quiz"><strong>3. 中文名：语料索引</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Corpus Index；类别 自然语言处理；一句话理解「料目录。」；完整定义见卷六 T-5435。</p>
+<p class="quiz"><strong>4. 中文名：文档级模型</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Document-level Model；类别 自然语言处理；一句话理解「整篇处理。」；完整定义见卷六 T-5075。</p>
+<p class="quiz"><strong>5. 中文名：未登录词</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Out-of-vocabulary Word；类别 自然语言处理；一句话理解「不认得的字。」；完整定义见卷六 T-4955。</p>
+<p class="quiz"><strong>6. 中文名：稠密向量</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Dense Vector；类别 自然语言处理；一句话理解「每个维度都装着信息的向量。」；完整定义见卷六 T-0710。</p>
+<p class="quiz"><strong>7. 中文名：语料安全审核</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Corpus Safety Review；类别 自然语言处理；一句话理解「查料安不安全。」；完整定义见卷六 T-5441。</p>
+<p class="quiz"><strong>8. 中文名：学术语料</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Academic Corpus；类别 自然语言处理；一句话理解「论文语料。」；完整定义见卷六 T-5419。</p>
+<h4>30.5 大模型 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：模型规模</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Model Scale；类别 大模型；一句话理解「模型有多大块头。」；完整定义见卷六 T-0468。</p>
+<p class="quiz"><strong>2. 中文名：可溯源回答</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Grounding；类别 大模型；一句话理解「每句话都能指到出处。」；完整定义见卷六 T-0727。</p>
+<p class="quiz"><strong>3. 中文名：直接偏好优化</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 DPO；类别 大模型；一句话理解「跳过打分环节，拿着偏好直接调参数。」；完整定义见卷六 T-0106。</p>
+<p class="quiz"><strong>4. 中文名：词表大小</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Vocabulary Size；类别 大模型；一句话理解「字库“装了多少个字”。」；完整定义见卷六 T-1305。</p>
+<p class="quiz"><strong>5. 中文名：开始符</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 BOS Token；类别 大模型；一句话理解「“开场哨”。」；完整定义见卷六 T-1301。</p>
+<p class="quiz"><strong>6. 中文名：思维链</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Chain-of-Thought (CoT)；类别 大模型；一句话理解「让模型把草稿纸摊开，一步一步算。」；完整定义见卷六 T-0101。</p>
+<p class="quiz"><strong>7. 中文名：输出投影</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Output Projection；类别 大模型；一句话理解「把“内部想法”翻成“字库投票”。」；完整定义见卷六 T-1316。</p>
+<p class="quiz"><strong>8. 中文名：局部注意力</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Local Attention；类别 大模型；一句话理解「“看近不看远”。」；完整定义见卷六 T-1326。</p>
+<h4>30.6 训练与优化 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：Huber 损失</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Huber Loss；类别 训练与优化；一句话理解「小错按平方算，大错按绝对值算。」；完整定义见卷六 T-0588。</p>
+<p class="quiz"><strong>2. 中文名：轮次</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Epoch；类别 训练与优化；一句话理解「把整本练习册做完一遍。」；完整定义见卷六 T-1092。</p>
+<p class="quiz"><strong>3. 中文名：上采样</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Upsampling；类别 训练与优化；一句话理解「冷门材料多印几份。」；完整定义见卷六 T-0500。</p>
+<p class="quiz"><strong>4. 中文名：低秩适配</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 LoRA；类别 训练与优化；一句话理解「不动大厦，只加几块小积木就能改用途。」；完整定义见卷六 T-0219。</p>
+<p class="quiz"><strong>5. 中文名：联邦学习</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Federated Learning；类别 训练与优化；一句话理解「大家各自练，只交“心得”不交“卷子”。」；完整定义见卷六 T-1098。</p>
+<p class="quiz"><strong>6. 中文名：同方差不确定性</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Homoscedastic Uncertainty；类别 训练与优化；一句话理解「“这科天生难考”。」；完整定义见卷六 T-1643。</p>
+<p class="quiz"><strong>7. 中文名：评估频率</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Evaluation Frequency；类别 训练与优化；一句话理解「多久模考一次。」；完整定义见卷六 T-0506。</p>
+<p class="quiz"><strong>8. 中文名：权重统计监控</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Weight Statistics Monitoring；类别 训练与优化；一句话理解「看看参数分布有没有走形。」；完整定义见卷六 T-0519。</p>
+<h4>30.7 系统与部署 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：配置热加载</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Config Hot Reload；类别 系统与部署；一句话理解「改完设置不用重启就生效。」；完整定义见卷六 T-0901。</p>
+<p class="quiz"><strong>2. 中文名：冒烟测试</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Smoke Test；类别 系统与部署；一句话理解「先点把火看烟囱冒不冒烟。」；完整定义见卷六 T-0789。</p>
+<p class="quiz"><strong>3. 中文名：不可变基础设施</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Immutable Infrastructure；类别 系统与部署；一句话理解「“坏就换新的”。」；完整定义见卷六 T-2109。</p>
+<p class="quiz"><strong>4. 中文名：缓存</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Caching；类别 系统与部署；一句话理解「把算过的答案记在便签上。」；完整定义见卷六 T-0795。</p>
+<p class="quiz"><strong>5. 中文名：教师模型</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Teacher Model；类别 系统与部署；一句话理解「传道授业的大师傅。」；完整定义见卷六 T-0217。</p>
+<p class="quiz"><strong>6. 中文名：流式输出</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Streaming Output；类别 系统与部署；一句话理解「边说边发，不用等全说完。」；完整定义见卷六 T-0748。</p>
+<p class="quiz"><strong>7. 中文名：列存储</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Column Storage；类别 系统与部署；一句话理解「“整列整列存”。」；完整定义见卷六 T-2152。</p>
+<p class="quiz"><strong>8. 中文名：异步推理</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Async Inference；类别 系统与部署；一句话理解「提交后不干等，忙完再取结果。」；完整定义见卷六 T-0799。</p>
+<h4>30.8 强化学习 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：优先经验回放</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Prioritized Experience Replay；类别 强化学习；一句话理解「“重要旧账优先复习”。」；完整定义见卷六 T-1360。</p>
+<p class="quiz"><strong>2. 中文名：广义优势估计</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 GAE；类别 强化学习；一句话理解「“折中估优势”。」；完整定义见卷六 T-1365。</p>
+<p class="quiz"><strong>3. 中文名：UCB</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Upper Confidence Bound；类别 强化学习；一句话理解「选期望高又可能被低估的。」；完整定义见卷六 T-0631。</p>
+<p class="quiz"><strong>4. 中文名：智能体</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Agent；类别 强化学习；一句话理解「“出招的人”。」；完整定义见卷六 T-1684。</p>
+<p class="quiz"><strong>5. 中文名：最大熵逆强化学习</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Max-entropy IRL；类别 强化学习；一句话理解「最不武断地反推。」；完整定义见卷六 T-4637。</p>
+<p class="quiz"><strong>6. 中文名：马尔可夫性质</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Markov Property；类别 强化学习；一句话理解「只记得现在，不记得昨天前天。」；完整定义见卷六 T-0063。</p>
+<p class="quiz"><strong>7. 中文名：策略评估</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Policy Evaluation；类别 强化学习；一句话理解「“给现招数估值”。」；完整定义见卷六 T-1680。</p>
+<p class="quiz"><strong>8. 中文名：状态重构任务</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 State Reconstruction Task；类别 强化学习；一句话理解「还原状态练脑。」；完整定义见卷六 T-4657。</p>
+<h4>30.9 生成模型 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：生成式广告</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Generative Advertising；类别 生成模型；一句话理解「让模型推销。」；完整定义见卷六 T-9131。</p>
+<p class="quiz"><strong>2. 中文名：生成式输出开发预算</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Generative Output Dev Budget；类别 生成模型；一句话理解「生成开发预算。」；完整定义见卷六 T-9397。</p>
+<p class="quiz"><strong>3. 中文名：温度缩放</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Temperature Scaling；类别 生成模型；一句话理解「调随机性。」；完整定义见卷六 T-4231。</p>
+<p class="quiz"><strong>4. 中文名：流匹配</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Flow Matching；类别 生成模型；一句话理解「画一条从噪声流向数据的河道，顺着水流取样本。」；完整定义见卷六 T-0194。</p>
+<p class="quiz"><strong>5. 中文名：生成式输出开发联盟</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Generative Output Dev Alliance；类别 生成模型；一句话理解「生成开发联盟。」；完整定义见卷六 T-9530。</p>
+<p class="quiz"><strong>6. 中文名：生成式输出开发文档</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Generative Output Dev Docs；类别 生成模型；一句话理解「生成开发文档。」；完整定义见卷六 T-9381。</p>
+<p class="quiz"><strong>7. 中文名：生成式输出开发趋势报告</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Generative Output Dev Trend Report；类别 生成模型；一句话理解「生成开发趋势报告。」；完整定义见卷六 T-9506。</p>
+<p class="quiz"><strong>8. 中文名：对比学习</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Contrastive Learning；类别 生成模型；一句话理解「让该像的更相像，该不同的更不同。」；完整定义见卷六 T-0320。</p>
+<h4>30.10 Agent与工具 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：任务队列</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Task Queue；类别 Agent与工具；一句话理解「排队办事的窗口。」；完整定义见卷六 T-0751。</p>
+<p class="quiz"><strong>2. 中文名：人类接管</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Human Takeover；类别 Agent与工具；一句话理解「人来接手。」；完整定义见卷六 T-4868。</p>
+<p class="quiz"><strong>3. 中文名：并发限制</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Concurrency Limit；类别 Agent与工具；一句话理解「同时最多几个。」；完整定义见卷六 T-4913。</p>
+<p class="quiz"><strong>4. 中文名：行动预算限制</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Action Budget Limit；类别 Agent与工具；一句话理解「最多做几步。」；完整定义见卷六 T-4911。</p>
+<p class="quiz"><strong>5. 中文名：行动前规划</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Plan Before Act；类别 Agent与工具；一句话理解「先想后做。」；完整定义见卷六 T-4782。</p>
+<p class="quiz"><strong>6. 中文名：状态恢复</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 State Restoration；类别 Agent与工具；一句话理解「找回状态。」；完整定义见卷六 T-4923。</p>
+<p class="quiz"><strong>7. 中文名：情感回应</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Empathetic Response；类别 Agent与工具；一句话理解「贴心回应。」；完整定义见卷六 T-4947。</p>
+<p class="quiz"><strong>8. 中文名：多任务智能体</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Multi-task Agent；类别 Agent与工具；一句话理解「多面手。」；完整定义见卷六 T-4817。</p>
+<h4>30.11 检索与上下文 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：多跳检索</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Multi-hop Retrieval；类别 检索与上下文；一句话理解「几跳才找到。」；完整定义见卷六 T-4303。</p>
+<p class="quiz"><strong>2. 中文名：检索问答</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Retrieval QA；类别 检索与上下文；一句话理解「先翻书后答题的问答机。」；完整定义见卷六 T-0341。</p>
+<p class="quiz"><strong>3. 中文名：暴力搜索</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Brute-force Search；类别 检索与上下文；一句话理解「一个个比。」；完整定义见卷六 T-4279。</p>
+<p class="quiz"><strong>4. 中文名：语义切块</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Semantic Chunking；类别 检索与上下文；一句话理解「按意思切。」；完整定义见卷六 T-4293。</p>
+<p class="quiz"><strong>5. 中文名：ColBERT</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 ColBERT；类别 检索与上下文；一句话理解「让问题每个词和文档每个词先算相似度再汇总。」；完整定义见卷六 T-0159。</p>
+<p class="quiz"><strong>6. 中文名：距离度量选择</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Distance Choice；类别 检索与上下文；一句话理解「用哪种距离。」；完整定义见卷六 T-4281。</p>
+<p class="quiz"><strong>7. 中文名：块大小</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Chunk Size；类别 检索与上下文；一句话理解「卡片做多大，直接决定好不好翻。」；完整定义见卷六 T-0346。</p>
+<p class="quiz"><strong>8. 中文名：证据拼接</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Evidence Concatenation；类别 检索与上下文；一句话理解「“把证据摆在一起”。」；完整定义见卷六 T-1479。</p>
+<h4>30.12 评估与数据 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：评估代码执行题集</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Evaluation Code Execution Set；类别 评估与数据；一句话理解「考跑代码。」；完整定义见卷六 T-9858。</p>
+<p class="quiz"><strong>2. 中文名：众包评估</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Crowdsourced Evaluation；类别 评估与数据；一句话理解「发动群众打分。」；完整定义见卷六 T-0673。</p>
+<p class="quiz"><strong>3. 中文名：评估AI评测数据案例</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Evaluation AI Eval Data Case；类别 评估与数据；一句话理解「考的数据案例。」；完整定义见卷六 T-10163。</p>
+<p class="quiz"><strong>4. 中文名：评估备份</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Evaluation Backup；类别 评估与数据；一句话理解「考存档。」；完整定义见卷六 T-9631。</p>
+<p class="quiz"><strong>5. 中文名：负责任的 AI</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Responsible AI；类别 评估与数据；一句话理解「“有担当”的 AI。」；完整定义见卷六 T-1283。</p>
+<p class="quiz"><strong>6. 中文名：评估AI评测数据愿景</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Evaluation AI Eval Data Vision；类别 评估与数据；一句话理解「考的数据愿景。」；完整定义见卷六 T-10171。</p>
+<p class="quiz"><strong>7. 中文名：评估随机种子</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Evaluation Random Seed；类别 评估与数据；一句话理解「考随机起点。」；完整定义见卷六 T-9641。</p>
+<p class="quiz"><strong>8. 中文名：评估样本</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Evaluation Sample；类别 评估与数据；一句话理解「考的样本。」；完整定义见卷六 T-9585。</p>
+<h4>30.13 视觉与多模态 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：表面重建</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Surface Reconstruction；类别 视觉与多模态；一句话理解「重建外壳。」；完整定义见卷六 T-4355。</p>
+<p class="quiz"><strong>2. 中文名：注意力视觉</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Attention in Vision；类别 视觉与多模态；一句话理解「看重点。」；完整定义见卷六 T-4401。</p>
+<p class="quiz"><strong>3. 中文名：跨模态检索</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Cross-modal Retrieval；类别 视觉与多模态；一句话理解「文搜图图搜文。」；完整定义见卷六 T-4439。</p>
+<p class="quiz"><strong>4. 中文名：视图合成</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 View Synthesis；类别 视觉与多模态；一句话理解「换角度看。」；完整定义见卷六 T-4345。</p>
+<p class="quiz"><strong>5. 中文名：图像配准</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Image Registration；类别 视觉与多模态；一句话理解「把图对齐。」；完整定义见卷六 T-4331。</p>
+<p class="quiz"><strong>6. 中文名：标注格式</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Annotation Format；类别 视觉与多模态；一句话理解「标注的写法。」；完整定义见卷六 T-4378。</p>
+<p class="quiz"><strong>7. 中文名：可微渲染</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Differentiable Rendering；类别 视觉与多模态；一句话理解「渲染能求导。」；完整定义见卷六 T-4352。</p>
+<p class="quiz"><strong>8. 中文名：文本到音频</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Text-to-audio；类别 视觉与多模态；一句话理解「写话出声音。」；完整定义见卷六 T-4435。</p>
+<h4>30.14 产品与工程 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：鲁棒设计</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Robust Design；类别 产品与工程；一句话理解「折腾也不坏。」；完整定义见卷六 T-3789。</p>
+<p class="quiz"><strong>2. 中文名：价格锚点</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Price Anchor；类别 产品与工程；一句话理解「先摆个贵的做参照。」；完整定义见卷六 T-2202。</p>
+<p class="quiz"><strong>3. 中文名：复合增长率</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 CAGR；类别 产品与工程；一句话理解「平均每年涨多少。」；完整定义见卷六 T-3847。</p>
+<p class="quiz"><strong>4. 中文名：月报</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Monthly Report；类别 产品与工程；一句话理解「一月总结。」；完整定义见卷六 T-3834。</p>
+<p class="quiz"><strong>5. 中文名：风险缓解</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Risk Mitigation；类别 产品与工程；一句话理解「把风险摁下去。」；完整定义见卷六 T-3794。</p>
+<p class="quiz"><strong>6. 中文名：蓝海</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Blue Ocean；类别 产品与工程；一句话理解「没人的海。」；完整定义见卷六 T-3842。</p>
+<p class="quiz"><strong>7. 中文名：字体排印</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Typography；类别 产品与工程；一句话理解「字怎么排。」；完整定义见卷六 T-2281。</p>
+<p class="quiz"><strong>8. 中文名：暗色模式</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Dark Mode；类别 产品与工程；一句话理解「夜间皮肤。」；完整定义见卷六 T-2253。</p>
+<h4>30.15 软件工程与算法 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：无损压缩</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Lossless Compression；类别 软件工程与算法；一句话理解「压完不丢。」；完整定义见卷六 T-4122。</p>
+<p class="quiz"><strong>2. 中文名：编译</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Compilation；类别 软件工程与算法；一句话理解「翻译成机器话。」；完整定义见卷六 T-3925。</p>
+<p class="quiz"><strong>3. 中文名：递归</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Recursion；类别 软件工程与算法；一句话理解「自己调自己。」；完整定义见卷六 T-2350。</p>
+<p class="quiz"><strong>4. 中文名：防御断言</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Assertion；类别 软件工程与算法；一句话理解「现场验假设。」；完整定义见卷六 T-3985。</p>
+<p class="quiz"><strong>5. 中文名：格式化工具</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Formatter；类别 软件工程与算法；一句话理解「自动整理代码。」；完整定义见卷六 T-4008。</p>
+<p class="quiz"><strong>6. 中文名：契约测试</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Contract Testing；类别 软件工程与算法；一句话理解「验接口约定。」；完整定义见卷六 T-4025。</p>
+<p class="quiz"><strong>7. 中文名：快速近端梯度</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 FISTA；类别 软件工程与算法；一句话理解「带外推的加速。」；完整定义见卷六 T-2452。</p>
+<p class="quiz"><strong>8. 中文名：自动修复</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Auto-fix；类别 软件工程与算法；一句话理解「自动改毛病。」；完整定义见卷六 T-4010。</p>
+<h4>30.16 沟通与协作 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：评价可靠性</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Evaluation Reliability；类别 沟通与协作；一句话理解「评得稳。」；完整定义见卷六 T-6964。</p>
+<p class="quiz"><strong>2. 中文名：交接</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Handover；类别 沟通与协作；一句话理解「把手里的活交出去。」；完整定义见卷六 T-2501。</p>
+<p class="quiz"><strong>3. 中文名：可得性偏差</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Availability Bias；类别 沟通与协作；一句话理解「想得起就当常见。」；完整定义见卷六 T-2577。</p>
+<p class="quiz"><strong>4. 中文名：双盲评审</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Double-blind Review；类别 沟通与协作；一句话理解「互相蒙着审。」；完整定义见卷六 T-6929。</p>
+<p class="quiz"><strong>5. 中文名：沟通目的</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Communication Purpose；类别 沟通与协作；一句话理解「为啥说。」；完整定义见卷六 T-6650。</p>
+<p class="quiz"><strong>6. 中文名：评价多元化</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Evaluation Diversity；类别 沟通与协作；一句话理解「评的多角度。」；完整定义见卷六 T-6996。</p>
+<p class="quiz"><strong>7. 中文名：微表情</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Microexpression；类别 沟通与协作；一句话理解「藏不住的表情。」；完整定义见卷六 T-6735。</p>
+<p class="quiz"><strong>8. 中文名：评审会</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Review Meeting；类别 沟通与协作；一句话理解「把活摆出来看看。」；完整定义见卷六 T-2558。</p>
+<h4>30.17 学习方法 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：练习间隔</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Spacing Effect；类别 学习方法；一句话理解「隔开练比一口气强。」；完整定义见卷六 T-2593。</p>
+<p class="quiz"><strong>2. 中文名：学习蓝图</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Learning Blueprint；类别 学习方法；一句话理解「学的图纸。」；完整定义见卷六 T-7206。</p>
+<p class="quiz"><strong>3. 中文名：主题学习</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Topic-based Learning；类别 学习方法；一句话理解「把一个主题学透。」；完整定义见卷六 T-2712。</p>
+<p class="quiz"><strong>4. 中文名：训练营认可度</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Camp Recognition；类别 学习方法；一句话理解「营认可。」；完整定义见卷六 T-7792。</p>
+<p class="quiz"><strong>5. 中文名：训练营发言人</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Camp Spokesperson；类别 学习方法；一句话理解「营发言人。」；完整定义见卷六 T-7852。</p>
+<p class="quiz"><strong>6. 中文名：训练营变迁</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Camp Evolution；类别 学习方法；一句话理解「营变迁。」；完整定义见卷六 T-7939。</p>
+<p class="quiz"><strong>7. 中文名：教中学</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Learning by Teaching；类别 学习方法；一句话理解「讲着学。」；完整定义见卷六 T-7261。</p>
+<p class="quiz"><strong>8. 中文名：训练营同学</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Camp Peers；类别 学习方法；一句话理解「营同学。」；完整定义见卷六 T-7647。</p>
+<h4>30.18 商业与战略 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：战略资本导向</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Strategic Capital Orientation；类别 商业与战略；一句话理解「资本导向。」；完整定义见卷六 T-8998。</p>
+<p class="quiz"><strong>2. 中文名：战略愿景追求</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Strategic Vision Pursuit；类别 商业与战略；一句话理解「追愿景。」；完整定义见卷六 T-9029。</p>
+<p class="quiz"><strong>3. 中文名：战略联盟导向</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Strategic Alliance Orientation；类别 商业与战略；一句话理解「联盟导向。」；完整定义见卷六 T-8999。</p>
+<p class="quiz"><strong>4. 中文名：景气度</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Business Cycle Position；类别 商业与战略；一句话理解「经济走到了哪一段。」；完整定义见卷六 T-2824。</p>
+<p class="quiz"><strong>5. 中文名：战略颠覆</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Strategic Disruption；类别 商业与战略；一句话理解「掀桌子。」；完整定义见卷六 T-8447。</p>
+<p class="quiz"><strong>6. 中文名：战略评级</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Strategic Rating；类别 商业与战略；一句话理解「战略定级。」；完整定义见卷六 T-8599。</p>
+<p class="quiz"><strong>7. 中文名：资本结构</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Capital Structure；类别 商业与战略；一句话理解「自己钱和借的钱的比例。」；完整定义见卷六 T-2763。</p>
+<p class="quiz"><strong>8. 中文名：战略品牌</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Strategic Brand；类别 商业与战略；一句话理解「战略名声。」；完整定义见卷六 T-8393。</p>
+<h4>30.19 AI 安全与伦理 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：会话劫持</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Session Hijacking；类别 AI 安全与伦理；一句话理解「偷会话。」；完整定义见卷六 T-6355。</p>
+<p class="quiz"><strong>2. 中文名：完整性原则</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Integrity Principle；类别 AI 安全与伦理；一句话理解「数据别缺。」；完整定义见卷六 T-5852。</p>
+<p class="quiz"><strong>3. 中文名：接口开发者治理</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 API Developer Governance；类别 AI 安全与伦理；一句话理解「接口开发者管理。」；完整定义见卷六 T-6568。</p>
+<p class="quiz"><strong>4. 中文名：模板注入</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Template Injection；类别 AI 安全与伦理；一句话理解「往模板里塞。」；完整定义见卷六 T-6364。</p>
+<p class="quiz"><strong>5. 中文名：数据可复现性</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Data Reproducibility；类别 AI 安全与伦理；一句话理解「同数据同结果。」；完整定义见卷六 T-6218。</p>
+<p class="quiz"><strong>6. 中文名：自然场景测试</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Naturalistic Testing；类别 AI 安全与伦理；一句话理解「真实场景测。」；完整定义见卷六 T-6249。</p>
+<p class="quiz"><strong>7. 中文名：路径遍历</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Path Traversal；类别 AI 安全与伦理；一句话理解「越级看文件。」；完整定义见卷六 T-6359。</p>
+<p class="quiz"><strong>8. 中文名：能力夸大</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Capability Exaggeration；类别 AI 安全与伦理；一句话理解「夸大本事。」；完整定义见卷六 T-5827。</p>
+<h4>30.20 数据工程 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：权限审计</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Permission Audit；类别 数据工程；一句话理解「查权限。」；完整定义见卷六 T-3760。</p>
+<p class="quiz"><strong>2. 中文名：逻辑删除</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Logical Deletion；类别 数据工程；一句话理解「贴个删除标签。」；完整定义见卷六 T-3300。</p>
+<p class="quiz"><strong>3. 中文名：业务术语表</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Business Glossary；类别 数据工程；一句话理解「业务黑话词典。」；完整定义见卷六 T-3663。</p>
+<p class="quiz"><strong>4. 中文名：最小可检测效应</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 MDE；类别 数据工程；一句话理解「多小能看出来。」；完整定义见卷六 T-3338。</p>
+<p class="quiz"><strong>5. 中文名：异常点检测</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Outlier Detection；类别 数据工程；一句话理解「揪出离群的。」；完整定义见卷六 T-3353。</p>
+<p class="quiz"><strong>6. 中文名：Schema</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Schema；类别 数据工程；一句话理解「数据的说明书。」；完整定义见卷六 T-3264。</p>
+<p class="quiz"><strong>7. 中文名：写多数派</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Write Majority；类别 数据工程；一句话理解「过半确认才写。」；完整定义见卷六 T-3754。</p>
+<p class="quiz"><strong>8. 中文名：统计信息</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Statistics；类别 数据工程；一句话理解「数据的画像。」；完整定义见卷六 T-3727。</p>
+<h4>30.21 硬件与算力 抽样（8 条）</h4>
+<p class="quiz"><strong>1. 中文名：峰值算力</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Peak Compute；类别 硬件与算力；一句话理解「理论上限。」；完整定义见卷六 T-3361。</p>
+<p class="quiz"><strong>2. 中文名：排队模型</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Queueing Model；类别 硬件与算力；一句话理解「排队学。」；完整定义见卷六 T-3458。</p>
+<p class="quiz"><strong>3. 中文名：加权轮询</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Weighted Round Robin；类别 硬件与算力；一句话理解「按分量轮流。」；完整定义见卷六 T-3449。</p>
+<p class="quiz"><strong>4. 中文名：GPU 直连</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 GPU Direct；类别 硬件与算力；一句话理解「GPU 私下传。」；完整定义见卷六 T-3405。</p>
+<p class="quiz"><strong>5. 中文名：制冷</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 Cooling；类别 硬件与算力；一句话理解「给机器降温。」；完整定义见卷六 T-3433。</p>
+<p class="quiz"><strong>6. 中文名：固态硬盘</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 SSD；类别 硬件与算力；一句话理解「快仓库。」；完整定义见卷六 T-3392。</p>
+<p class="quiz"><strong>7. 中文名：SIMD</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 SIMD；类别 硬件与算力；一句话理解「一条指令算多个数。」；完整定义见卷六 T-3382。</p>
+<p class="quiz"><strong>8. 中文名：TFLOPS</strong><br>自答英文名：＿＿＿＿＿　类别：＿＿＿＿＿　一句话理解：＿＿＿＿＿＿＿＿<br>参考答案：英文名 TFLOPS；类别 硬件与算力；一句话理解「一秒万亿次。」；完整定义见卷六 T-3360。</p>
+<p>共抽样自测 168 条术语。更多自测题见卷十题库与卷六每张卡片的自测部分。</p>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

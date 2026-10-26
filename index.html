@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 课程保全档案 · 阅读版</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+<style>
+.volgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-top:14px;}
+a.vol{display:block;border:1px solid var(--line);border-left:5px solid var(--accent);background:#faf6ef;padding:10px 12px;text-decoration:none;color:var(--ink);border-radius:0 6px 6px 0;}
+a.vol:hover{border-color:var(--accent);}
+.vn{display:block;font-weight:bold;color:var(--accent);margin-bottom:4px;}
+.vd{display:block;font-size:13px;color:var(--accent2);line-height:1.5;min-height:2.5em;}
+.vs{display:inline-block;margin-top:6px;font-size:12px;color:#fff;background:var(--accent);border-radius:10px;padding:1px 8px;}
+.catgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-top:14px;}
+a.cat{display:block;border:1px solid var(--line);border-left:5px solid var(--accent);background:#faf6ef;padding:10px 12px;text-decoration:none;color:var(--ink);border-radius:0 6px 6px 0;}
+a.cat b{display:block;color:var(--accent);}
+a.cat i{display:inline-block;margin-top:4px;font-style:normal;font-size:12px;color:var(--accent2);}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;text-decoration:none;color:var(--accent2);font-size:13px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+.flash{animation:tocFlash 2.6s ease;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+@media(max-width:768px){.toc-links{grid-template-columns:repeat(2,1fr);}a.vol{font-size:14px;}}
+@media(max-width:500px){.toc-links{grid-template-columns:1fr;}.toc-links a{white-space:normal;}.volgrid{grid-template-columns:1fr;}.catgrid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门</h1><p>工作对话保全档案 · 三十卷 · 构建于 2026-10-24 · 纯文本实测 126.19 MB 来源：用户提供的微信公众号文章 + 各课程官网公开信息（抓取核验）</p></div></header>
+<main><div class="wrap">
+<nav class="toc" id="toc"><div class="wrap" style="padding:0"><h2>目录</h2><a href="卷首-档案说明与使用指南.html">卷首｜档案说明与使用指南</a><a href="卷01-工作对话保全记录.html">卷一｜工作对话保全记录</a><a href="卷02-原文全文与逐句精读.html">卷二｜原文全文与逐句精读</a><a href="卷03-二十门课程总览与选课导航.html">卷三｜二十门课程总览与选课导航</a><a href="卷04-十门重点课程深度档案.html">卷四｜十门重点课程深度档案</a><a href="卷05-其余十门课程档案.html">卷五｜其余十门课程档案</a><a href="卷06-导航.html">卷六｜AI 术语大词典（10224 条）</a><a href="卷07-术语×课程关联矩阵.html">卷七｜术语 × 课程 关联矩阵</a><a href="卷08-导航.html">卷八｜术语相关网络与辨析</a><a href="卷09-课程两两对比矩阵（全量190对）.html">卷九｜课程两两对比矩阵（全量 190 对）</a><a href="卷10-自测题库与深度解析（42题）.html">卷十｜自测题库与深度解析（42 题）</a><a href="卷11-学习路线图与十二周计划.html">卷十一｜学习路线图与十二周计划</a><a href="卷12-经典论文与延伸阅读清单（48篇）.html">卷十二｜经典论文与延伸阅读清单（48 篇）</a><a href="卷13-全文语料索引（词频与术语定位）.html">卷十三｜全文语料索引（词频与术语定位）</a><a href="卷14-逐讲导读与学习检查单.html">卷十四｜逐讲导读与学习检查单</a><a href="卷15-术语上下文索引（KeyWordinContext）.html">卷十五｜术语上下文索引（Key Word in Context）</a><a href="卷16-术语双语对照总表（10224条）.html">卷十六｜术语双语对照总表（10224 条）</a><a href="卷17-方法论与工作手册.html">卷十七｜方法论与工作手册</a><a href="卷18-附录.html">卷十八｜附录</a><a href="卷19-术语两两辨析矩阵.html">卷十九｜术语两两辨析矩阵</a><a href="卷20-课程×术语×作业三维索引.html">卷二十｜课程 × 术语 × 作业 三维索引</a><a href="卷21-全文词频扩展表（Top2000）.html">卷二十一｜全文词频扩展表（Top 2000）</a><a href="卷22-术语拼音首字母索引.html">卷二十二｜术语拼音首字母索引</a><a href="卷23-FAQ大全（课程常见问答汇总）.html">卷二十三｜FAQ 大全（课程常见问答汇总）</a><a href="卷24-学习日志模板（十二周打卡）.html">卷二十四｜学习日志模板（十二周打卡）</a><a href="卷25-术语类别统计与总览.html">卷二十五｜术语类别统计与总览</a><a href="卷26-课程版本时间线.html">卷二十六｜课程版本时间线</a><a href="卷27-术语英文释义总表.html">卷二十七｜术语英文释义总表</a><a href="卷28-术语完整明细表.html">卷二十八｜术语完整明细表</a><a href="卷29-文章配图索引与课程逐讲清单.html">卷二十九｜文章配图索引与课程逐讲清单</a><a href="卷30-术语抽查自测卷.html">卷三十｜术语抽查自测卷</a></div></nav>
+<section class="chapter" id="index"><h3>阅读版说明</h3><p>本阅读版与大体积版内容逐字一致（全文无差别），按卷拆分为独立文件，其中卷六、卷八再按 21 个类别拆成子页：打开入口页秒开，进入任意页面只需解析 0.0–6 MB，跳转不再卡顿，手机上也能正常折叠与阅读。138MB 单文件仍保留为存档。</p>
+<div class="volgrid"><a class="vol" href="卷首-档案说明与使用指南.html"><span class="vn">卷首｜档案说明与使用指南</span><span class="vd">本档案由一次豆包工作对话完整保全而来。用户提供《斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门》全文（来源：https://mp.weixin…</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷01-工作对话保全记录.html"><span class="vn">卷一｜工作对话保全记录</span><span class="vd">本节按时间顺序记录本工作对话的关键节点，证明一次问答如何被展开为一个可复现的知识工作坊。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷02-原文全文与逐句精读.html"><span class="vn">卷二｜原文全文与逐句精读</span><span class="vd">以下为文章《斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门》全文，按原文段落收录，随后对每个句子给出精读注解。原文来源：https://mp.…</span><span class="vs">0.2 MB</span></a><a class="vol" href="卷03-二十门课程总览与选课导航.html"><span class="vn">卷三｜二十门课程总览与选课导航</span><span class="vd">按文章的五类分类法，列出全部 20 门课程。★ 标记为文章重点详解的 10 门。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷04-十门重点课程深度档案.html"><span class="vn">卷四｜十门重点课程深度档案</span><span class="vd">以下 10 门课程是文章详细展开的重点，每门档案包含定位、材料、版本、前置、适合人群、第一步、真实反馈、讲座主题、作业与常见问答。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷05-其余十门课程档案.html"><span class="vn">卷五｜其余十门课程档案</span><span class="vd">学校：Stanford　·　分类：A｜应用与 Agent　·　官网：https://web.stanford.edu/class/cs224g/</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷06-导航.html"><span class="vn">卷六｜AI 术语大词典（10224 条）</span><span class="vd">按 21 个类别拆分为子页，内容逐字保留。</span><span class="vs">21 类子页</span></a><a class="vol" href="卷07-术语×课程关联矩阵.html"><span class="vn">卷七｜术语 × 课程 关联矩阵</span><span class="vd">对每门课程列出其主题标签命中的术语卡片，说明该课程与术语体系的关系。</span><span class="vs">0.6 MB</span></a><a class="vol" href="卷08-导航.html"><span class="vn">卷八｜术语相关网络与辨析</span><span class="vd">按 21 个类别拆分为子页，内容逐字保留。</span><span class="vs">21 类子页</span></a><a class="vol" href="卷09-课程两两对比矩阵（全量190对）.html"><span class="vn">卷九｜课程两两对比矩阵（全量 190 对）</span><span class="vd">对 20 门课程做全量两两比较，帮助在相似或不同课程之间做选择。每对对比包含分类关系、各自解决的问题与典型适用人群。</span><span class="vs">0.1 MB</span></a><a class="vol" href="卷10-自测题库与深度解析（42题）.html"><span class="vn">卷十｜自测题库与深度解析（42 题）</span><span class="vd">题目来自文章事实与课程官网信息，题型含判断、选择与简答，每题附答案与解析，并给出可核验来源。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷11-学习路线图与十二周计划.html"><span class="vn">卷十一｜学习路线图与十二周计划</span><span class="vd">路径：Building with AI → CS224U → CS329A。不写代码或少量代码，目标是把 AI 用进工作流。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷12-经典论文与延伸阅读清单（48篇）.html"><span class="vn">卷十二｜经典论文与延伸阅读清单（48 篇）</span><span class="vd">以下论文来自各课程官网推荐阅读，按课程归档；标题、作者与年份均已核对。每篇附详细摘要与阅读建议，便于按需精读。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷13-全文语料索引（词频与术语定位）.html"><span class="vn">卷十三｜全文语料索引（词频与术语定位）</span><span class="vd">本节对全文（文章原文 + 课程档案 + 术语词典）做词频统计与术语定位，便于按词检索内容出处。</span><span class="vs">0.9 MB</span></a><a class="vol" href="卷14-逐讲导读与学习检查单.html"><span class="vn">卷十四｜逐讲导读与学习检查单</span><span class="vd">对每门课程的每一讲给出导读与学习检查单：先明确这一讲解决什么，再给出学完后的自检问题。导读按课程真实讲座主题生成，配合卷四/卷五档案使用。</span><span class="vs">0.1 MB</span></a><a class="vol" href="卷15-术语上下文索引（KeyWordinContext）.html"><span class="vn">卷十五｜术语上下文索引（Key Word in Context）</span><span class="vd">为每个术语在文章与课程讲座标题中检索出现位置，给出上下文片段与出处，构成可追溯的术语-原文索引。未在原文出现的术语标注为课程体系扩展词。</span><span class="vs">1.5 MB</span></a><a class="vol" href="卷16-术语双语对照总表（10224条）.html"><span class="vn">卷十六｜术语双语对照总表（10224 条）</span><span class="vd">全部术语的中文名、英文名、类别与一句话理解对照表，可作速查手册与复习清单。</span><span class="vs">1.3 MB</span></a><a class="vol" href="卷17-方法论与工作手册.html"><span class="vn">卷十七｜方法论与工作手册</span><span class="vd">选课或选工具前，先写下要解决的具体问题与验收标准。文章的核心论点正是“先找问题，再选课程”：想做一个能用的 AI 助手，就不要先点开从零训练大模型。对应到本档案…</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷18-附录.html"><span class="vn">卷十八｜附录</span><span class="vd">MIT Building with AI：用 AI 搭建（Building with AI）</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷19-术语两两辨析矩阵.html"><span class="vn">卷十九｜术语两两辨析矩阵</span><span class="vd">在同类别内部对术语做两两配对，输出辨析说明，帮助区分最容易混淆的相邻概念。矩阵按类别分节，每类列出该类别内术语对的辨析条目。</span><span class="vs">5.8 MB</span></a><a class="vol" href="卷20-课程×术语×作业三维索引.html"><span class="vn">卷二十｜课程 × 术语 × 作业 三维索引</span><span class="vd">以课程为主轴，列出每门课程的主题标签、讲座主题、作业清单，并将课程标签映射到术语词典，构成“想学什么—去哪个课—做什么作业”的三维导航。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷21-全文词频扩展表（Top2000）.html"><span class="vn">卷二十一｜全文词频扩展表（Top 2000）</span><span class="vd">对全文（文章原文 + 课程档案 + 术语词典）做 2-4 字词频统计，扩展列出出现频率最高的 2000 个词，供检索与语言观察使用。</span><span class="vs">0.1 MB</span></a><a class="vol" href="卷22-术语拼音首字母索引.html"><span class="vn">卷二十二｜术语拼音首字母索引</span><span class="vd">按术语中文名的拼音首字母排序索引，便于在纸质或离线场景按读音快速定位术语卡片。</span><span class="vs">0.4 MB</span></a><a class="vol" href="卷23-FAQ大全（课程常见问答汇总）.html"><span class="vn">卷二十三｜FAQ 大全（课程常见问答汇总）</span><span class="vd">汇总全部课程档案中的常见问答，按课程分组；再补充通用学习 FAQ，回答选课与学习中反复出现的问题。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷24-学习日志模板（十二周打卡）.html"><span class="vn">卷二十四｜学习日志模板（十二周打卡）</span><span class="vd">为三条路线各提供十二周的学习日志模板：每周记录本周目标、完成事项、数据产出、卡点与下周调整。模板可直接复制使用。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷25-术语类别统计与总览.html"><span class="vn">卷二十五｜术语类别统计与总览</span><span class="vd">对术语词典按类别做统计，输出各类别的条目数、占比与代表性术语，帮助整体把握术语体系的结构。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷26-课程版本时间线.html"><span class="vn">卷二十六｜课程版本时间线</span><span class="vd">按课程公开版本整理时间线，帮助判断讲义与作业的时效性。信息来自各课程官网与本文档课程档案中的版本字段。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷27-术语英文释义总表.html"><span class="vn">卷二十七｜术语英文释义总表</span><span class="vd">为全部术语给出英文定义句，供英文阅读与检索场景使用；英文释义基于术语定义自动生成，核心信息以中文定义为准。</span><span class="vs">2.4 MB</span></a><a class="vol" href="卷28-术语完整明细表.html"><span class="vn">卷二十八｜术语完整明细表</span><span class="vd">全部术语的五元组完整明细（中文名、英文名、类别、定义、一句话理解），是术语词典的扁平化总表，供检索、排序与批量复习使用。</span><span class="vs">1.6 MB</span></a><a class="vol" href="卷29-文章配图索引与课程逐讲清单.html"><span class="vn">卷二十九｜文章配图索引与课程逐讲清单</span><span class="vd">汇总文章 10 张配图的图注索引，以及全部 20 门课程的逐讲主题清单，作为整体浏览与快速定位工具。</span><span class="vs">0.0 MB</span></a><a class="vol" href="卷30-术语抽查自测卷.html"><span class="vn">卷三十｜术语抽查自测卷</span><span class="vd">从全部术语中按类别抽样生成自测题：给出中文名，自答英文名、类别与一句话理解；再给出英文名反查中文名。用于整本档案学完后的总复习。</span><span class="vs">0.1 MB</span></a></div></section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 全部本地打开，无需联网</footer>
+<script>(function(){try{var toc=document.getElementById('toc');if(!toc)return;var wrap=toc.querySelector('.wrap')||toc;var h2=wrap.querySelector('h2');var links=Array.prototype.slice.call(wrap.querySelectorAll('a'));var head=document.createElement('div');head.className='toc-head';if(h2)head.appendChild(h2);var btn=document.createElement('button');btn.type='button';btn.className='toc-btn';head.appendChild(btn);var box=document.createElement('div');box.className='toc-links';links.forEach(function(a){box.appendChild(a);});wrap.insertBefore(head,wrap.firstChild);wrap.appendChild(box);var LIMIT=8;function apply(){toc.classList.toggle('open',!!toc.dataset.open);links.forEach(function(a,i){if(i>=LIMIT){a.classList.toggle('hide',!toc.dataset.open);}});btn.textContent=toc.dataset.open?('收起目录 ▲'):('展开全部 '+links.length+' 卷 ▼');}btn.addEventListener('click',function(){if(toc.dataset.open){delete toc.dataset.open;}else{toc.dataset.open='1';}apply();});apply();var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';document.body.appendChild(tb);var tick=false;function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){var y=window.scrollY||document.documentElement.scrollTop||0;tb.classList.toggle('show',y>600);tick=false;});}window.addEventListener('scroll',onScroll,{passive:true});tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});onScroll();}catch(e){}})();</script>
+</body>
+</html>

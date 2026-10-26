@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷九｜课程两两对比矩阵（全量 190 对）</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷九｜课程两两对比矩阵（全量 190 对）</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷九｜课程两两对比矩阵（全量 190 对）</h3>
+<p>对 20 门课程做全量两两比较，帮助在相似或不同课程之间做选择。每对对比包含分类关系、各自解决的问题与典型适用人群。</p>
+<p class="rel"><strong>MIT Building with AI × MIT 6.S191</strong>：A｜应用与 Agent × B｜基础 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS224G</strong>：同属A｜应用与 Agent分类；MIT Building with AI解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS224G解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」。选 MIT Building with AI 的典型理由是 有重复的研究或办公任务、想知道 AI 能接手哪一段的人。；选 Stanford CS224G 的典型理由是 想做 LLM 应用工程与 Agent 系统的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS224U</strong>：同属A｜应用与 Agent分类；MIT Building with AI解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS224U解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」。选 MIT Building with AI 的典型理由是 有重复的研究或办公任务、想知道 AI 能接手哪一段的人。；选 Stanford CS224U 的典型理由是 已有 NLP 基础、在做问答/检索系统却凭感觉比较版本的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS329A</strong>：同属A｜应用与 Agent分类；MIT Building with AI解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS329A解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」。选 MIT Building with AI 的典型理由是 有重复的研究或办公任务、想知道 AI 能接手哪一段的人。；选 Stanford CS329A 的典型理由是 愿意读论文、比较反馈方法的研究型学习者。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT Building with AI × MIT 6.7960</strong>：A｜应用与 Agent × B｜基础 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS229</strong>：A｜应用与 Agent × B｜基础 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS221</strong>：A｜应用与 Agent × B｜基础 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS230</strong>：A｜应用与 Agent × B｜基础 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CME295</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS224N</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS336</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × MIT EfficientML</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS224R</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS329H</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS25</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CS231N</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × MIT MAS.S60</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × MIT 6.S184</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT Building with AI × Stanford CME296</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；MIT Building with AI（A｜应用与 Agent）解决「面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS224G</strong>：B｜基础 × A｜应用与 Agent 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS224U</strong>：B｜基础 × A｜应用与 Agent 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS329A</strong>：B｜基础 × A｜应用与 Agent 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × MIT 6.7960</strong>：同属B｜基础分类；MIT 6.S191解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，MIT 6.7960解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」。选 MIT 6.S191 的典型理由是 愿意写 Python、想快速建立深度学习直觉的人；跨领域学生；选 MIT 6.7960 的典型理由是 想花一学期系统学深度学习的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS229</strong>：同属B｜基础分类；MIT 6.S191解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS229解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」。选 MIT 6.S191 的典型理由是 愿意写 Python、想快速建立深度学习直觉的人；跨领域学生；选 Stanford CS229 的典型理由是 需要机器学习数学基础、为后续课程铺路的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS221</strong>：同属B｜基础分类；MIT 6.S191解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS221解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」。选 MIT 6.S191 的典型理由是 愿意写 Python、想快速建立深度学习直觉的人；跨领域学生；选 Stanford CS221 的典型理由是 想建立 AI 全局框架的人；CS224R 的 RL 前置参考。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS230</strong>：同属B｜基础分类；MIT 6.S191解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS230解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」。选 MIT 6.S191 的典型理由是 愿意写 Python、想快速建立深度学习直觉的人；跨领域学生；选 Stanford CS230 的典型理由是 想在不陷进数学的前提下了解深度学习全貌的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CME295</strong>：B｜基础 × C｜大模型 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS224N</strong>：B｜基础 × C｜大模型 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS336</strong>：B｜基础 × C｜大模型 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × MIT EfficientML</strong>：B｜基础 × C｜大模型 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS224R</strong>：B｜基础 × D｜反馈与研究 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS329H</strong>：B｜基础 × D｜反馈与研究 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS25</strong>：B｜基础 × D｜反馈与研究 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CS231N</strong>：B｜基础 × E｜视觉与生成 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × MIT MAS.S60</strong>：B｜基础 × E｜视觉与生成 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × MIT 6.S184</strong>：B｜基础 × E｜视觉与生成 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.S191 × Stanford CME296</strong>：B｜基础 × E｜视觉与生成 跨分类组合；MIT 6.S191（B｜基础）解决「短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS224U</strong>：同属A｜应用与 Agent分类；Stanford CS224G解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS224U解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」。选 Stanford CS224G 的典型理由是 想做 LLM 应用工程与 Agent 系统的人。；选 Stanford CS224U 的典型理由是 已有 NLP 基础、在做问答/检索系统却凭感觉比较版本的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS329A</strong>：同属A｜应用与 Agent分类；Stanford CS224G解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS329A解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」。选 Stanford CS224G 的典型理由是 想做 LLM 应用工程与 Agent 系统的人。；选 Stanford CS329A 的典型理由是 愿意读论文、比较反馈方法的研究型学习者。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS224G × MIT 6.7960</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS229</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS221</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS230</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CME295</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS224N</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS336</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × MIT EfficientML</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS224R</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS329H</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS25</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CS231N</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × MIT MAS.S60</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × MIT 6.S184</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224G × Stanford CME296</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS224G（A｜应用与 Agent）解决「把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CS329A</strong>：同属A｜应用与 Agent分类；Stanford CS224U解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CS329A解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」。选 Stanford CS224U 的典型理由是 已有 NLP 基础、在做问答/检索系统却凭感觉比较版本的人。；选 Stanford CS329A 的典型理由是 愿意读论文、比较反馈方法的研究型学习者。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS224U × MIT 6.7960</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CS229</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CS221</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CS230</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CME295</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CS224N</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CS336</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × MIT EfficientML</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CS224R</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CS329H</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CS25</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CS231N</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × MIT MAS.S60</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × MIT 6.S184</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224U × Stanford CME296</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS224U（A｜应用与 Agent）解决「做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × MIT 6.7960</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CS229</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CS221</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CS230</strong>：A｜应用与 Agent × B｜基础 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CME295</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CS224N</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CS336</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × MIT EfficientML</strong>：A｜应用与 Agent × C｜大模型 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CS224R</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CS329H</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CS25</strong>：A｜应用与 Agent × D｜反馈与研究 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CS231N</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × MIT MAS.S60</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × MIT 6.S184</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329A × Stanford CME296</strong>：A｜应用与 Agent × E｜视觉与生成 跨分类组合；Stanford CS329A（A｜应用与 Agent）解决「Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CS229</strong>：同属B｜基础分类；MIT 6.7960解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CS229解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」。选 MIT 6.7960 的典型理由是 想花一学期系统学深度学习的人。；选 Stanford CS229 的典型理由是 需要机器学习数学基础、为后续课程铺路的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CS221</strong>：同属B｜基础分类；MIT 6.7960解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CS221解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」。选 MIT 6.7960 的典型理由是 想花一学期系统学深度学习的人。；选 Stanford CS221 的典型理由是 想建立 AI 全局框架的人；CS224R 的 RL 前置参考。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CS230</strong>：同属B｜基础分类；MIT 6.7960解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CS230解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」。选 MIT 6.7960 的典型理由是 想花一学期系统学深度学习的人。；选 Stanford CS230 的典型理由是 想在不陷进数学的前提下了解深度学习全貌的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CME295</strong>：B｜基础 × C｜大模型 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CS224N</strong>：B｜基础 × C｜大模型 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CS336</strong>：B｜基础 × C｜大模型 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × MIT EfficientML</strong>：B｜基础 × C｜大模型 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CS224R</strong>：B｜基础 × D｜反馈与研究 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CS329H</strong>：B｜基础 × D｜反馈与研究 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CS25</strong>：B｜基础 × D｜反馈与研究 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CS231N</strong>：B｜基础 × E｜视觉与生成 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × MIT MAS.S60</strong>：B｜基础 × E｜视觉与生成 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × MIT 6.S184</strong>：B｜基础 × E｜视觉与生成 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT 6.7960 × Stanford CME296</strong>：B｜基础 × E｜视觉与生成 跨分类组合；MIT 6.7960（B｜基础）解决「一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × Stanford CS221</strong>：同属B｜基础分类；Stanford CS229解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，Stanford CS221解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」。选 Stanford CS229 的典型理由是 需要机器学习数学基础、为后续课程铺路的人。；选 Stanford CS221 的典型理由是 想建立 AI 全局框架的人；CS224R 的 RL 前置参考。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS229 × Stanford CS230</strong>：同属B｜基础分类；Stanford CS229解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，Stanford CS230解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」。选 Stanford CS229 的典型理由是 需要机器学习数学基础、为后续课程铺路的人。；选 Stanford CS230 的典型理由是 想在不陷进数学的前提下了解深度学习全貌的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS229 × Stanford CME295</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × Stanford CS224N</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × Stanford CS336</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × MIT EfficientML</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × Stanford CS224R</strong>：B｜基础 × D｜反馈与研究 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × Stanford CS329H</strong>：B｜基础 × D｜反馈与研究 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × Stanford CS25</strong>：B｜基础 × D｜反馈与研究 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × Stanford CS231N</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × MIT MAS.S60</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × MIT 6.S184</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS229 × Stanford CME296</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS229（B｜基础）解决「机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × Stanford CS230</strong>：同属B｜基础分类；Stanford CS221解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，Stanford CS230解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」。选 Stanford CS221 的典型理由是 想建立 AI 全局框架的人；CS224R 的 RL 前置参考；选 Stanford CS230 的典型理由是 想在不陷进数学的前提下了解深度学习全貌的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS221 × Stanford CME295</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × Stanford CS224N</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × Stanford CS336</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × MIT EfficientML</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × Stanford CS224R</strong>：B｜基础 × D｜反馈与研究 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × Stanford CS329H</strong>：B｜基础 × D｜反馈与研究 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × Stanford CS25</strong>：B｜基础 × D｜反馈与研究 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × Stanford CS231N</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × MIT MAS.S60</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × MIT 6.S184</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS221 × Stanford CME296</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS221（B｜基础）解决「AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × Stanford CME295</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × Stanford CS224N</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × Stanford CS336</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × MIT EfficientML</strong>：B｜基础 × C｜大模型 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × Stanford CS224R</strong>：B｜基础 × D｜反馈与研究 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × Stanford CS329H</strong>：B｜基础 × D｜反馈与研究 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × Stanford CS25</strong>：B｜基础 × D｜反馈与研究 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × Stanford CS231N</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × MIT MAS.S60</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × MIT 6.S184</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS230 × Stanford CME296</strong>：B｜基础 × E｜视觉与生成 跨分类组合；Stanford CS230（B｜基础）解决「深度学习的整体概览：CNN、RNN、Transformer、调参与应…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CME295 × Stanford CS224N</strong>：同属C｜大模型分类；Stanford CME295解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」，Stanford CS224N解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」。选 Stanford CME295 的典型理由是 有数学与 ML 基础、想串起 Transformer/训练/；选 Stanford CS224N 的典型理由是 会 Python、有概率/线代/微积分与基础 ML 知识、想。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CME295 × Stanford CS336</strong>：同属C｜大模型分类；Stanford CME295解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」，Stanford CS336解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。选 Stanford CME295 的典型理由是 有数学与 ML 基础、想串起 Transformer/训练/；选 Stanford CS336 的典型理由是 想把听懂变成写出来的人；要亲手训练语言模型的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CME295 × MIT EfficientML</strong>：同属C｜大模型分类；Stanford CME295解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」，MIT EfficientML解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。选 Stanford CME295 的典型理由是 有数学与 ML 基础、想串起 Transformer/训练/；选 MIT EfficientML 的典型理由是 已经会训练或运行模型、下一步关心延迟/内存/部署成本的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CME295 × Stanford CS224R</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CME295 × Stanford CS329H</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CME295 × Stanford CS25</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CME295 × Stanford CS231N</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CME295 × MIT MAS.S60</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CME295 × MIT 6.S184</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CME295 × Stanford CME296</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CME295（C｜大模型）解决「先把 LLM 的知识骨架搭起来：Transformer、训练、推理、…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224N × Stanford CS336</strong>：同属C｜大模型分类；Stanford CS224N解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」，Stanford CS336解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」。选 Stanford CS224N 的典型理由是 会 Python、有概率/线代/微积分与基础 ML 知识、想；选 Stanford CS336 的典型理由是 想把听懂变成写出来的人；要亲手训练语言模型的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS224N × MIT EfficientML</strong>：同属C｜大模型分类；Stanford CS224N解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」，MIT EfficientML解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。选 Stanford CS224N 的典型理由是 会 Python、有概率/线代/微积分与基础 ML 知识、想；选 MIT EfficientML 的典型理由是 已经会训练或运行模型、下一步关心延迟/内存/部署成本的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS224N × Stanford CS224R</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224N × Stanford CS329H</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224N × Stanford CS25</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224N × Stanford CS231N</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224N × MIT MAS.S60</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224N × MIT 6.S184</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224N × Stanford CME296</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CS224N（C｜大模型）解决「理解语言模型的主干：词向量、神经网络、Attention、Trans…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS336 × MIT EfficientML</strong>：同属C｜大模型分类；Stanford CS336解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」，MIT EfficientML解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」。选 Stanford CS336 的典型理由是 想把听懂变成写出来的人；要亲手训练语言模型的人。；选 MIT EfficientML 的典型理由是 已经会训练或运行模型、下一步关心延迟/内存/部署成本的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS336 × Stanford CS224R</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS336 × Stanford CS329H</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS336 × Stanford CS25</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS336 × Stanford CS231N</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS336 × MIT MAS.S60</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS336 × MIT 6.S184</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS336 × Stanford CME296</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；Stanford CS336（C｜大模型）解决「真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT EfficientML × Stanford CS224R</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」，Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT EfficientML × Stanford CS329H</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」，Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT EfficientML × Stanford CS25</strong>：C｜大模型 × D｜反馈与研究 跨分类组合；MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」，Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT EfficientML × Stanford CS231N</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT EfficientML × MIT MAS.S60</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT EfficientML × MIT 6.S184</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>MIT EfficientML × Stanford CME296</strong>：C｜大模型 × E｜视觉与生成 跨分类组合；MIT EfficientML（C｜大模型）解决「模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224R × Stanford CS329H</strong>：同属D｜反馈与研究分类；Stanford CS224R解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」，Stanford CS329H解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」。选 Stanford CS224R 的典型理由是 想理解模型如何从反馈中学习、愿意做 RL 实验的人。；选 Stanford CS329H 的典型理由是 想深入研究对齐与人类偏好建模的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS224R × Stanford CS25</strong>：同属D｜反馈与研究分类；Stanford CS224R解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」，Stanford CS25解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。选 Stanford CS224R 的典型理由是 想理解模型如何从反馈中学习、愿意做 RL 实验的人。；选 Stanford CS25 的典型理由是 想低成本跟踪研究前沿的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS224R × Stanford CS231N</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224R × MIT MAS.S60</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224R × MIT 6.S184</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS224R × Stanford CME296</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS224R（D｜反馈与研究）解决「模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329H × Stanford CS25</strong>：同属D｜反馈与研究分类；Stanford CS329H解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」，Stanford CS25解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」。选 Stanford CS329H 的典型理由是 想深入研究对齐与人类偏好建模的人。；选 Stanford CS25 的典型理由是 想低成本跟踪研究前沿的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS329H × Stanford CS231N</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329H × MIT MAS.S60</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329H × MIT 6.S184</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS329H × Stanford CME296</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS329H（D｜反馈与研究）解决「人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS25 × Stanford CS231N</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」，Stanford CS231N（E｜视觉与生成）解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS25 × MIT MAS.S60</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」，MIT MAS.S60（E｜视觉与生成）解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS25 × MIT 6.S184</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」，MIT 6.S184（E｜视觉与生成）解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS25 × Stanford CME296</strong>：D｜反馈与研究 × E｜视觉与生成 跨分类组合；Stanford CS25（D｜反馈与研究）解决「以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀…」，Stanford CME296（E｜视觉与生成）解决「扩散模型与大规模视觉模型的理论与实现。…」。组合学习的价值在于互补：前者补知识结构，后者补应用或系统视角；按目标路线决定先后顺序。</p>
+<p class="rel"><strong>Stanford CS231N × MIT MAS.S60</strong>：同属E｜视觉与生成分类；Stanford CS231N解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」，MIT MAS.S60解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」。选 Stanford CS231N 的典型理由是 想做视觉方向、理解 CNN 与 ViT 的人。；选 MIT MAS.S60 的典型理由是 想做多模态应用与创意科研项目的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS231N × MIT 6.S184</strong>：同属E｜视觉与生成分类；Stanford CS231N解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」，MIT 6.S184解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。选 Stanford CS231N 的典型理由是 想做视觉方向、理解 CNN 与 ViT 的人。；选 MIT 6.S184 的典型理由是 想理解图像生成背后的数学和实现、并亲手搭建潜空间扩散模型的人。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>Stanford CS231N × Stanford CME296</strong>：同属E｜视觉与生成分类；Stanford CS231N解决「视觉任务的深度学习：CNN、视觉 Transformer、目标检测、…」，Stanford CME296解决「扩散模型与大规模视觉模型的理论与实现。…」。选 Stanford CS231N 的典型理由是 想做视觉方向、理解 CNN 与 ViT 的人。；选 Stanford CME296 的典型理由是 想深入扩散模型与视觉生成的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT MAS.S60 × MIT 6.S184</strong>：同属E｜视觉与生成分类；MIT MAS.S60解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」，MIT 6.S184解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」。选 MIT MAS.S60 的典型理由是 想做多模态应用与创意科研项目的人。；选 MIT 6.S184 的典型理由是 想理解图像生成背后的数学和实现、并亲手搭建潜空间扩散模型的人。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT MAS.S60 × Stanford CME296</strong>：同属E｜视觉与生成分类；MIT MAS.S60解决「多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种…」，Stanford CME296解决「扩散模型与大规模视觉模型的理论与实现。…」。选 MIT MAS.S60 的典型理由是 想做多模态应用与创意科研项目的人。；选 Stanford CME296 的典型理由是 想深入扩散模型与视觉生成的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p class="rel"><strong>MIT 6.S184 × Stanford CME296</strong>：同属E｜视觉与生成分类；MIT 6.S184解决「理解图像/视频生成的数学与实现：随机微分方程、Fokker-Plan…」，Stanford CME296解决「扩散模型与大规模视觉模型的理论与实现。…」。选 MIT 6.S184 的典型理由是 想理解图像生成背后的数学和实现、并亲手搭建潜空间扩散模型的人；选 Stanford CME296 的典型理由是 想深入扩散模型与视觉生成的人。。若时间有限，先按 30 秒选择题确定方向，再用本对比做细化。</p>
+<p>共生成 190 组全量课程两两对比（含同类与跨类）。</p>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

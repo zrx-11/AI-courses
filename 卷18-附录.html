@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷十八｜附录</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷十八｜附录</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷十八｜附录</h3>
+<h4>18.1 全部课程官网入口</h4>
+<p><a href="https://web.mit.edu/webcast/computing/s26/0926/1.html">MIT Building with AI：用 AI 搭建（Building with AI）</a></p>
+<p><a href="https://introtodeeplearning.com/">MIT 6.S191：深度学习导论（MIT 6.S191）</a></p>
+<p><a href="https://web.stanford.edu/class/cs224g/">Stanford CS224G：LLM 应用工程（CS224G）</a></p>
+<p><a href="https://web.stanford.edu/class/cs224u/">Stanford CS224U：自然语言理解（CS224U）</a></p>
+<p><a href="https://cs329a.stanford.edu/">Stanford CS329A：自我改进的 AI Agent（CS329A）</a></p>
+<p><a href="https://ocw.mit.edu/courses/6-7960-deep-learning-fall-2024/">MIT 6.7960：学期级深度学习（6.7960）</a></p>
+<p><a href="https://cs229.stanford.edu/">Stanford CS229：机器学习（CS229）</a></p>
+<p><a href="https://stanford-cs221.github.io/">Stanford CS221：人工智能：搜索、推理与决策（CS221）</a></p>
+<p><a href="https://cs230.stanford.edu/">Stanford CS230：深度学习概览（CS230）</a></p>
+<p><a href="https://cme295.stanford.edu/">Stanford CME295：大模型知识框架（CME295）</a></p>
+<p><a href="https://web.stanford.edu/class/cs224n/">Stanford CS224N：自然语言处理与深度学习（CS224N）</a></p>
+<p><a href="https://cs336.stanford.edu/">Stanford CS336：从零训练语言模型（CS336）</a></p>
+<p><a href="https://hanlab.mit.edu/courses/2024-fall-65940">MIT EfficientML：高效深度学习计算（6.5940 / EfficientML）</a></p>
+<p><a href="https://cs224r.stanford.edu/spring_2025/">Stanford CS224R：深度强化学习（CS224R）</a></p>
+<p><a href="https://web.stanford.edu/class/cs329h/">Stanford CS329H：从人类偏好学习（CS329H）</a></p>
+<p><a href="https://web.stanford.edu/class/cs25/recordings/">Stanford CS25：研究者专题研讨（CS25）</a></p>
+<p><a href="https://cs231n.stanford.edu/">Stanford CS231N：计算机视觉（CS231N）</a></p>
+<p><a href="https://ocw.mit.edu/courses/mas-s60-how-to-ai-almost-anything-spring-2025/">MIT MAS.S60：如何 AI 万物（MAS.S60）</a></p>
+<p><a href="https://diffusion.csail.mit.edu/2026/">MIT 6.S184：流匹配与扩散模型（6.S184）</a></p>
+<p><a href="https://www.youtube.com/playlist?list=PLoROMvodv4rNdy8rt2rZ4T2xM0OjADnfu">Stanford CME296：扩散与大型视觉模型（CME296）</a></p>
+<h4>18.2 插图索引</h4>
+<p>文章配有 10 张课程官方截图，图注如下：①MIT Building with AI Module 1 课堂截图（2026）；②MIT 6.S191 官网第一讲课件；③Stanford CME295 Lecture 1（2025）；④Stanford CS224N Lecture 5（2026 课件）；⑤Stanford CS336 Assignment 1（Spring 2026）；⑥MIT EfficientML Lecture 1（2024 课程入口）；⑦Stanford CS224U Information Retrieval（2023）；⑧Stanford Online CS329A Part 1 课堂截图；⑨Stanford CS224R Course intro（2025）；⑩MIT 6.S184 Lecture 1（2026 课程入口）。</p>
+<h4>18.3 来源与生成说明</h4>
+<p>文章全文由用户提供；课程版本、讲师、作业与前置要求经各课程官网抓取核验（6.S191、CS224N、CS336、CS224U、CS329A、CS224R、6.S184、EfficientML），CME295 官网直连被 robots.txt 拒绝，其信息取自文章与公开讨论。术语、题库与论文说明由豆包基于公开知识整理。本档案由脚本从种子数据确定性生成，构建脚本与数据文件保留于构建目录，可复现。</p>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

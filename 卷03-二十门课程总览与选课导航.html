@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷三｜二十门课程总览与选课导航</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷三｜二十门课程总览与选课导航</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷三｜二十门课程总览与选课导航</h3>
+<p>按文章的五类分类法，列出全部 20 门课程。★ 标记为文章重点详解的 10 门。</p>
+<h4>A｜应用与 Agent：先把事情做成</h4>
+<div class="tbl-wrap"><table class="coursetable"><colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup><thead><tr><th>课程</th><th>解决什么问题</th><th>可用材料／版本</th></tr></thead><tbody>
+<tr><td><a href="#course-0">MIT Building with AI</a> ★</td><td>面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行的 Agent 工作流：查找资助机会、整理材料、生成…</td><td>官网提供 2026 年 8 月 31 日至 9 月 4 日系列模块的 webcast 入口，2026 模块录播。…</td></tr>
+<tr><td><a href="#course-2">Stanford CS224G</a></td><td>把大语言模型用到工程里：构建 LLM 应用、Agent 系统、提示工程与评估。…</td><td>2026 讲义、部分代码；无讲课录播。…</td></tr>
+<tr><td><a href="#course-3">Stanford CS224U</a> ★</td><td>做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为评估与实验方法。…</td><td>2023 公开版讲义、Python notebooks、作业与 bakeoff；完全支持在线异步学习。…</td></tr>
+<tr><td><a href="#course-4">Stanford CS329A</a> ★</td><td>Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、搜索+LLM、训练时 RL 缩放、工具/代码/记忆、…</td><td>Autumn 2025 官网课件；Stanford Online 已公开录播；真实课堂讨论含 CodeMonkeys 等…</td></tr>
+</tbody></table></div>
+<h4>B｜基础：看不懂模型时，从这里补</h4>
+<div class="tbl-wrap"><table class="coursetable"><colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup><thead><tr><th>课程</th><th>解决什么问题</th><th>可用材料／版本</th></tr></thead><tbody>
+<tr><td><a href="#course-1">MIT 6.S191</a> ★</td><td>短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模型、强化学习、LLM 微调串起来。…</td><td>2026 版公开讲座、slides、代码；实验室 Lab1 音乐生成、Lab2 人脸检测、Lab3 微调 LLM；每周一…</td></tr>
+<tr><td><a href="#course-5">MIT 6.7960</a></td><td>一整个学期的深度学习系统课：比 6.S191 更完整地覆盖理论、模型与实验。…</td><td>2024 OCW 视频、习题。…</td></tr>
+<tr><td><a href="#course-6">Stanford CS229</a></td><td>机器学习的数学基础：监督学习、无监督学习、学习理论、优化。…</td><td>官方公开视频；当前校内资料需登录；Stanford Online 官方频道可搜 CS229 免费录播。…</td></tr>
+<tr><td><a href="#course-7">Stanford CS221</a></td><td>AI 的骨架：搜索、约束满足、博弈、MDP、强化学习与贝叶斯网络。…</td><td>2025 官方视频；GitHub 讲义。…</td></tr>
+<tr><td><a href="#course-8">Stanford CS230</a></td><td>深度学习的整体概览：CNN、RNN、Transformer、调参与应用。…</td><td>2025 公开视频；配套另有 Coursera 组件。…</td></tr>
+</tbody></table></div>
+<h4>C｜大模型：从理解原理到训练部署</h4>
+<div class="tbl-wrap"><table class="coursetable"><colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup><thead><tr><th>课程</th><th>解决什么问题</th><th>可用材料／版本</th></tr></thead><tbody>
+<tr><td><a href="#course-9">Stanford CME295</a> ★</td><td>先把 LLM 的知识骨架搭起来：Transformer、训练、推理、RAG 与 Agent 的关系。…</td><td>2025 秋季系列官方频道可见 9 个视频；官网有 slides、图解速查表、考试材料。…</td></tr>
+<tr><td><a href="#course-10">Stanford CS224N</a> ★</td><td>理解语言模型的主干：词向量、神经网络、Attention、Transformer、预训练与评估。…</td><td>Winter 2026 讲义与作业公开；官网指向的免费完整 YouTube 录播是 2024 版；2026 校内录播需登…</td></tr>
+<tr><td><a href="#course-11">Stanford CS336</a> ★</td><td>真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、数据、评估和对齐。…</td><td>2026 春季版有官方视频入口和作业（五组）；Spring 2026 讲师 Percy Liang、Tatsunori …</td></tr>
+<tr><td><a href="#course-12">MIT EfficientML</a> ★</td><td>模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式训练、梯度压缩、端上微调，以及 LLM 与扩散模型加…</td><td>Fall 2024 公开视频、slides 和实验；官网含在笔记本部署语言模型的实践目标（部署 Llama2-7B 到笔…</td></tr>
+</tbody></table></div>
+<h4>D｜反馈与研究：深入一条分支</h4>
+<div class="tbl-wrap"><table class="coursetable"><colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup><thead><tr><th>课程</th><th>解决什么问题</th><th>可用材料／版本</th></tr></thead><tbody>
+<tr><td><a href="#course-13">Stanford CS224R</a> ★</td><td>模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励学习、RL for LLM、元 RL、分层 RL 与…</td><td>官网当前是 2026 春季，公开录播入口指向 2025 版；官方频道合集显示 19 个视频；2025 春课程表完整（He…</td></tr>
+<tr><td><a href="#course-14">Stanford CS329H</a></td><td>人类反馈如何进入模型：偏好建模、RLHF、DPO 与对齐方法的原理。…</td><td>2024 官方视频。…</td></tr>
+<tr><td><a href="#course-15">Stanford CS25</a></td><td>以专题研讨方式跟踪 Transformer/LLM 研究前沿：每期邀请研究者讲解最新进展。…</td><td>V6 及历届精选录播。…</td></tr>
+</tbody></table></div>
+<h4>E｜视觉与生成：拓展到多模态</h4>
+<div class="tbl-wrap"><table class="coursetable"><colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup><thead><tr><th>课程</th><th>解决什么问题</th><th>可用材料／版本</th></tr></thead><tbody>
+<tr><td><a href="#course-16">Stanford CS231N</a></td><td>视觉任务的深度学习：CNN、视觉 Transformer、目标检测、图像生成。…</td><td>2025 官方视频。…</td></tr>
+<tr><td><a href="#course-17">MIT MAS.S60</a></td><td>多模态与科研应用的动手课：用 AI 处理文本、图像、声音、视频等多种模态。…</td><td>2025 OCW 材料。…</td></tr>
+<tr><td><a href="#course-18">MIT 6.S184</a> ★</td><td>理解图像/视频生成的数学与实现：随机微分方程、Fokker-Planck 方程、流匹配、评分匹配、无分类器引导、潜空间与…</td><td>2026 版官网有讲义、录播、课程笔记（自包含）和三个实验；实验覆盖 ODE/SDE、流匹配与评分匹配、扩散 Trans…</td></tr>
+<tr><td><a href="#course-19">Stanford CME296</a></td><td>扩散模型与大规模视觉模型的理论与实现。…</td><td>官方视频合集；此处不标授课年。…</td></tr>
+</tbody></table></div>
+<h4>30 秒选第一门</h4><ol><li>不写代码，想把 AI 用到工作中：从 MIT Building with AI 的第一个模块开始。</li><li>会一点 Python，想补深度学习基础：先选 MIT 6.S191。</li><li>已经会 PyTorch，想亲手训练语言模型：选 Stanford CS336，但要给作业留出大块时间。</li><li>已经做过 LLM 应用，想让结果更可靠：看 CS224U 的检索与评估内容，再按兴趣进入 CS329A。</li></ol>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

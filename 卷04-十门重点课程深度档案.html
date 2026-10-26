@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷四｜十门重点课程深度档案</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷四｜十门重点课程深度档案</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷四｜十门重点课程深度档案</h3>
+<p>以下 10 门课程是文章详细展开的重点，每门档案包含定位、材料、版本、前置、适合人群、第一步、真实反馈、讲座主题、作业与常见问答。</p>
+<h4 id="course-0">课程档案 00｜MIT Building with AI：用 AI 搭建（Building with AI）</h4>
+<p class="meta">学校：MIT　·　分类：A｜应用与 Agent　·　官网：<a href="https://web.mit.edu/webcast/computing/s26/0926/1.html">https://web.mit.edu/webcast/computing/s26/0926/1.html</a></p>
+<p><strong>解决什么问题：</strong>面向科学家与工程师的应用课程，把科研、办公中的重复流程变成可重复执行的 Agent 工作流：查找资助机会、整理材料、生成演示文稿等。</p>
+<p><strong>可用材料／版本：</strong>官网提供 2026 年 8 月 31 日至 9 月 4 日系列模块的 webcast 入口，2026 模块录播。</p>
+<p><strong>版本说明：</strong>2026 模块录播；官方明确不预设编程经验。</p>
+<p><strong>前置知识：</strong>不需要编程基础；需要带着一个具体的任务来学。</p>
+<p><strong>适合谁：</strong>有重复的研究或办公任务、想知道 AI 能接手哪一段的人。</p>
+<p><strong>不适合谁：</strong>需要完整计算机科学入门的人；想从零训练模型的人。</p>
+<p><strong>第一步：</strong>从第一个模块开始，弄懂一个任务如何变成可重复执行的流程。</p>
+<p><strong>真实反馈：</strong>课程定位是应用落地，不是完整的 CS 入门；适合立刻上手做流程。</p>
+<p><strong>讲座主题（6 讲）：</strong></p><ol><li>Agent 工作流入门</li><li>AI 辅助编程</li><li>数据抓取与清洗</li><li>数据可视化</li><li>基础模型与微调</li><li>把任务变成可重复执行的流程</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>模块练习：把一个真实任务拆成可重复执行的流程</li><li>Agent 工作流演示</li><li>生成式演示文稿实践</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>没有编程经验能学吗？</dt><dd>官方明确不预设编程经验，但需要带着具体任务来。</dd><dt>五个模块分别是什么？</dt><dd>Agent、AI 编程、数据抓取清洗、可视化、基础模型与微调。</dd><dt>学完能做什么？</dt><dd>把一个具体的科研或办公任务转成可重复执行的 AI 流程。</dd></dl>
+<p><strong>主题标签：</strong>Agent、工作流、办公自动化、提示工程、基础模型。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-1">课程档案 01｜MIT 6.S191：深度学习导论（MIT 6.S191）</h4>
+<p class="meta">学校：MIT　·　分类：B｜基础　·　官网：<a href="https://introtodeeplearning.com/">https://introtodeeplearning.com/</a></p>
+<p><strong>解决什么问题：</strong>短程、高强度的深度学习入门：用实验把神经网络、序列建模、视觉、生成模型、强化学习、LLM 微调串起来。</p>
+<p><strong>可用材料／版本：</strong>2026 版公开讲座、slides、代码；实验室 Lab1 音乐生成、Lab2 人脸检测、Lab3 微调 LLM；每周一 10am ET 更新。</p>
+<p><strong>版本说明：</strong>2026 版（3月30日-5月25日）；历史版本可回溯 2025-2017。</p>
+<p><strong>前置知识：</strong>基本线性代数与微积分（会求导、会矩阵乘）；Python 经验有帮助但非硬性要求。</p>
+<p><strong>适合谁：</strong>愿意写 Python、想快速建立深度学习直觉的人；跨领域学生（NLP/视觉/生物）。</p>
+<p><strong>不适合谁：</strong>想彻底搞懂数学推导的人；没有线性代数与微积分基础的人。</p>
+<p><strong>第一步：</strong>看第一讲，运行 Lab 1，修改一个参数并记录结果；别把成功运行当成理解原理。</p>
+<p><strong>真实反馈：</strong>课程以实验驱动，官方称其为高强度的 bootcamp；适合快速入门。</p>
+<p><strong>讲座主题（9 讲）：</strong></p><ol><li>Intro to Deep Learning</li><li>Deep Sequence Modeling</li><li>Deep Computer Vision</li><li>Deep Generative Modeling</li><li>Deep Reinforcement Learning</li><li>New Frontiers</li><li>The Three Laws of AI</li><li>AI for Science</li><li>Secrets to Massively Parallel Training</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>Software Lab 1: Deep Learning in Python; Music Generation</li><li>Software Lab 2: Facial Detection Systems</li><li>Software Lab 3: Fine-Tune an LLM, You Must!</li><li>Final Project: 提案竞争 + 评委反馈</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>听众可以旁听吗？</dt><dd>所有听众欢迎旁听；2026 版为 3 学分 P/D/F 课程，基于项目提案完成度评分。</dd><dt>先修要求是什么？</dt><dd>非常基础的线性代数与微积分（矩阵乘法、求导、链式法则），Python 熟悉是加分项。</dd><dt>材料开源吗？</dt><dd>全部开源免费，MIT License；引用需标注 © Alexander Amini and Ava Amini。</dd></dl>
+<p><strong>主题标签：</strong>深度学习、神经网络、序列建模、计算机视觉、生成模型、强化学习、LLM 微调。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-3">课程档案 03｜Stanford CS224U：自然语言理解（CS224U）</h4>
+<p class="meta">学校：Stanford　·　分类：A｜应用与 Agent　·　官网：<a href="https://web.stanford.edu/class/cs224u/">https://web.stanford.edu/class/cs224u/</a></p>
+<p><strong>解决什么问题：</strong>做 RAG、检索问答时如何判断真的变好了：检索增强、上下文学习、行为评估与实验方法。</p>
+<p><strong>可用材料／版本：</strong>2023 公开版讲义、Python notebooks、作业与 bakeoff；完全支持在线异步学习。</p>
+<p><strong>版本说明：</strong>Spring 2023 公开版（讲师 Christopher Potts，TA 含 Kawin Ethayarajh）。</p>
+<p><strong>前置知识：</strong>NLP 基础；已开始做问答或检索系统。</p>
+<p><strong>适合谁：</strong>已有 NLP 基础、在做问答/检索系统却凭感觉比较版本的人。</p>
+<p><strong>不适合谁：</strong>零基础入门者；只想学训练细节的人。</p>
+<p><strong>第一步：</strong>做一个小型检索问答实验，整理固定测试问题，记录错误类型。</p>
+<p><strong>真实反馈：</strong>学习者 Skeptric 认可其帮助理解 NLP 问题、技术与数据集，开放式作业空间大；课程侧重广度而非训练细节。</p>
+<p><strong>讲座主题（9 讲）：</strong></p><ol><li>Course introduction and overview</li><li>Contextual word representations</li><li>Diffusion objectives for text</li><li>Fantastic language models and how to build them</li><li>Information retrieval</li><li>In-context learning</li><li>Advanced behavioral evaluation of NLU models</li><li>Analysis methods for NLU</li><li>NLP methods and metrics</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>Assign/bakeoff 1: 域自适应监督情感分析</li><li>Assign/bakeoff 2: 检索增强上下文学习</li><li>Assign/bakeoff 3: 行为评估</li><li>Lit review 文献综述</li><li>Experimental protocol 实验方案</li><li>Final paper 期末论文</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>可以完全线上异步学吗？</dt><dd>可以；课程全部可在线异步完成，课堂有录播，核心内容通过 slides、视频与 notebook 交付。</dd><dt>bakeoff 是什么？</dt><dd>开放式作业：同一任务上提交自己的系统参与对比，强调实验方法。</dd><dt>适合评估新手吗？</dt><dd>适合；课程把行为评估与实验方法作为核心模块。</dd></dl>
+<p><strong>主题标签：</strong>自然语言理解、检索增强、上下文学习、行为评估、实验方法、RAG。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-4">课程档案 04｜Stanford CS329A：自我改进的 AI Agent（CS329A）</h4>
+<p class="meta">学校：Stanford　·　分类：A｜应用与 Agent　·　官网：<a href="https://cs329a.stanford.edu/">https://cs329a.stanford.edu/</a></p>
+<p><strong>解决什么问题：</strong>Agent 如何通过反馈持续改进：宪法式 AI、验证器、推理时计算、搜索+LLM、训练时 RL 缩放、工具/代码/记忆、规划与 Agent 评估。</p>
+<p><strong>可用材料／版本：</strong>Autumn 2025 官网课件；Stanford Online 已公开录播；真实课堂讨论含 CodeMonkeys 等研究案例。</p>
+<p><strong>版本说明：</strong>Autumn 2025；讲师 Aakanksha Chowdhery、Azalia Mirhoseini。</p>
+<p><strong>前置知识：</strong>已有 LLM 基础；愿意读论文、做对照实验。</p>
+<p><strong>适合谁：</strong>愿意读论文、比较反馈方法的研究型学习者。</p>
+<p><strong>不适合谁：</strong>只想照步骤装工具的人。</p>
+<p><strong>第一步：</strong>选一个规划或验证方法，在同一批任务上比较加入前后的表现，同时记录调用成本。</p>
+<p><strong>真实反馈：</strong>研究型课程，不是点按钮的工具教程；课堂以最新论文为主线。</p>
+<p><strong>讲座主题（10 讲）：</strong></p><ol><li>Self-improvement techniques for LLMs</li><li>Constitutional AI</li><li>Verifiers</li><li>Scaling test-time compute</li><li>Combining search with LLMs</li><li>Train time scaling with RL</li><li>Tool use and code feedback</li><li>Memory and multimodal orchestration</li><li>Multi-step reasoning and planning</li><li>Robust evaluation frameworks</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>原始研究项目（coding agents / research assistants / robotics 应用）</li><li>课堂论文阅读讨论</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>需要什么基础？</dt><dd>已有 LLM 基础，愿意读论文与做对照实验。</dd><dt>课程风格如何？</dt><dd>以最新研究论文为主线，邀请学界与业界 speaker，做原创研究项目。</dd><dt>和 CS224U 的区别？</dt><dd>CS224U 侧重 NLU 与评估方法；CS329A 侧重 Agent 自我改进与反馈机制。</dd></dl>
+<p><strong>主题标签：</strong>Agent、反馈、验证器、推理时计算、规划、记忆、RL。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-9">课程档案 09｜Stanford CME295：大模型知识框架（CME295）</h4>
+<p class="meta">学校：Stanford　·　分类：C｜大模型　·　官网：<a href="https://cme295.stanford.edu/">https://cme295.stanford.edu/</a></p>
+<p><strong>解决什么问题：</strong>先把 LLM 的知识骨架搭起来：Transformer、训练、推理、RAG 与 Agent 的关系。</p>
+<p><strong>可用材料／版本：</strong>2025 秋季系列官方频道可见 9 个视频；官网有 slides、图解速查表、考试材料。</p>
+<p><strong>版本说明：</strong>2025 公开版；2026 版计划 9 月 25 日开课，本次推荐公开的 2025 版。</p>
+<p><strong>前置知识：</strong>微积分、线性代数与基础机器学习。</p>
+<p><strong>适合谁：</strong>有数学与 ML 基础、想串起 Transformer/训练/推理/RAG/Agent 的人。</p>
+<p><strong>不适合谁：</strong>完全零基础的人；想从零实现的人（CS336 更适合）。</p>
+<p><strong>第一步：</strong>看首讲后，不看笔记画出 Transformer 数据流，再用公开考试题自检。</p>
+<p><strong>真实反馈：</strong>Reddit 观众：视频帮他弄清 RoPE 等模糊概念；另一观众认为它更像中等深度的架构综述而非底层数学深挖。适合补框架，不能替代从零实现。</p>
+<p><strong>讲座主题（8 讲）：</strong></p><ol><li>Transformer 总图</li><li>注意力与位置编码</li><li>训练目标与数据</li><li>推理与解码</li><li>RAG 与检索</li><li>Agent 与工具使用</li><li>评估与对齐</li><li>系统与部署</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>公开考试材料自测</li><li>图解速查表</li><li>Transformer 数据流复述练习</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>和 CS336 的区别？</dt><dd>CME295 重框架综述与系统，CS336 重从零实现与训练。</dd><dt>2026 版何时开？</dt><dd>2026 版计划 9 月 25 日开课；已公开的是 2025 版。</dd><dt>视频在哪里？</dt><dd>Stanford 官方频道可见 2025 秋季系列 9 个视频。</dd></dl>
+<p><strong>主题标签：</strong>Transformer、LLM、训练、推理、RAG、Agent、RoPE。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-10">课程档案 10｜Stanford CS224N：自然语言处理与深度学习（CS224N）</h4>
+<p class="meta">学校：Stanford　·　分类：C｜大模型　·　官网：<a href="https://web.stanford.edu/class/cs224n/">https://web.stanford.edu/class/cs224n/</a></p>
+<p><strong>解决什么问题：</strong>理解语言模型的主干：词向量、神经网络、Attention、Transformer、预训练与评估。</p>
+<p><strong>可用材料／版本：</strong>Winter 2026 讲义与作业公开；官网指向的免费完整 YouTube 录播是 2024 版；2026 校内录播需登录。</p>
+<p><strong>版本说明：</strong>Winter 2026（讲师 Diyi Yang、Yejin Choi）；公开视频为 2024 版，勿混用新旧作业。</p>
+<p><strong>前置知识：</strong>Python（NumPy/PyTorch）；大学微积分、线性代数；基础概率统计；机器学习基础（CS221/CS229/CS230 或同等）。</p>
+<p><strong>适合谁：</strong>会 Python、有概率/线代/微积分与基础 ML 知识、想从听懂名词进入能解释并实现的人。</p>
+<p><strong>不适合谁：</strong>没有数学与编程基础的人。</p>
+<p><strong>第一步：</strong>用公开的词向量或 Transformer 作业检验基础，选择同一版材料连续学，避免新旧作业混用。</p>
+<p><strong>真实反馈：</strong>2021 年 Reddit 曾任助教用户提醒：没学 CS229 也可以学，但梯度相关作业可能更吃力。</p>
+<p><strong>讲座主题（12 讲）：</strong></p><ol><li>History of NLP</li><li>Word Vectors</li><li>Backpropagation and Neural Network Basics</li><li>Language Models and RNNs</li><li>Transformers</li><li>Pretraining (Scaling, Systems, Data)</li><li>Post-training (RLHF, SFT, DPO)</li><li>Efficient Adaptation (Prompting + PEFT)</li><li>Agents, Tool Use, and RAG</li><li>Benchmarking and Evaluation</li><li>Reasoning 1</li><li>Reasoning 2</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>Assignment 1: 词向量导论</li><li>Assignment 2: 神经网络基础、张量导数、依存句法分析</li><li>Assignment 3: 自注意力与 Transformer</li><li>Assignment 4: LLM 基准测试与评估</li><li>Final Project: 默认实现迷你 GPT-2 或自定义项目（提案8%+里程碑6%+海报3%+报告32%）</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>公开视频是哪个版本？</dt><dd>官网指向的免费完整 YouTube 录播为 2024 版；Winter 2026 校内录播需登录。</dd><dt>作业占比？</dt><dd>4 次作业合计 48%；期末项目 49%。</dd><dt>可以没有 CS229 吗？</dt><dd>可以，但梯度相关作业会更吃力。</dd><dt>项目做什么？</dt><dd>默认项目是实现迷你 GPT-2；也可自定义项目。</dd></dl>
+<p><strong>主题标签：</strong>NLP、词向量、RNN、Transformer、预训练、RLHF、RAG、推理、评估。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-11">课程档案 11｜Stanford CS336：从零训练语言模型（CS336）</h4>
+<p class="meta">学校：Stanford　·　分类：C｜大模型　·　官网：<a href="https://cs336.stanford.edu/">https://cs336.stanford.edu/</a></p>
+<p><strong>解决什么问题：</strong>真正从零做一个语言模型：tokenizer、模型与优化器、系统优化、数据、评估和对齐。</p>
+<p><strong>可用材料／版本：</strong>2026 春季版有官方视频入口和作业（五组）；Spring 2026 讲师 Percy Liang、Tatsunori Hashimoto。</p>
+<p><strong>版本说明：</strong>Spring 2026。</p>
+<p><strong>前置知识：</strong>熟悉 Python、PyTorch 与深度学习。</p>
+<p><strong>适合谁：</strong>想把听懂变成写出来的人；要亲手训练语言模型的人。</p>
+<p><strong>不适合谁：</strong>只想搭一个业务助手的人；GPU 资源不足的人。</p>
+<p><strong>第一步：</strong>先做 Assignment 1 的 tokenizer 和最小模型；后续 GPU 与分布式训练要求更高，先看作业说明再安排算力。</p>
+<p><strong>真实反馈：</strong>真实反馈：这不是轻量视频课，作业量很大，需要大块时间。</p>
+<p><strong>讲座主题（7 讲）：</strong></p><ol><li>Tokenizer</li><li>模型架构</li><li>优化器</li><li>系统优化</li><li>数据</li><li>评估</li><li>对齐</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>Assignment 1: tokenizer 与最小模型</li><li>Assignment 2: 模型与优化器</li><li>Assignment 3: 系统优化</li><li>Assignment 4: 数据与评估</li><li>Assignment 5: 对齐</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>需要多少算力？</dt><dd>后续作业涉及 GPU 与分布式训练，先看作业说明再安排。</dd><dt>和 CME295 区别？</dt><dd>CS336 以大量实现为主，CME295 以框架综述为主。</dd><dt>讲师是谁？</dt><dd>Percy Liang 与 Tatsunori Hashimoto。</dd></dl>
+<p><strong>主题标签：</strong>Tokenizer、语言模型、优化器、系统优化、数据、评估、对齐、PyTorch。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-12">课程档案 12｜MIT EfficientML：高效深度学习计算（6.5940 / EfficientML）</h4>
+<p class="meta">学校：MIT　·　分类：C｜大模型　·　官网：<a href="https://hanlab.mit.edu/courses/2024-fall-65940">https://hanlab.mit.edu/courses/2024-fall-65940</a></p>
+<p><strong>解决什么问题：</strong>模型太慢、太占显存怎么办：模型压缩、剪枝、量化、神经架构搜索、分布式训练、梯度压缩、端上微调，以及 LLM 与扩散模型加速。</p>
+<p><strong>可用材料／版本：</strong>Fall 2024 公开视频、slides 和实验；官网含在笔记本部署语言模型的实践目标（部署 Llama2-7B 到笔记本）。</p>
+<p><strong>版本说明：</strong>Fall 2024（讲师 Song Han；2025 秋因教授休假不开课）。</p>
+<p><strong>前置知识：</strong>6.191 计算结构 + 6.390 机器学习入门（或同等经历申请）。</p>
+<p><strong>适合谁：</strong>已经会训练或运行模型、下一步关心延迟/内存/部署成本的人。</p>
+<p><strong>不适合谁：</strong>还没有机器学习与计算机系统基础的人。</p>
+<p><strong>第一步：</strong>做模型压缩与量化实验，尝试把 Llama2-7B 部署到笔记本。</p>
+<p><strong>真实反馈：</strong>实践目标明确：从压缩技术到端侧部署一条线打通。</p>
+<p><strong>讲座主题（10 讲）：</strong></p><ol><li>Efficient AI Computing 总览</li><li>模型剪枝</li><li>量化</li><li>神经架构搜索</li><li>分布式训练</li><li>数据/模型并行</li><li>梯度压缩</li><li>端上微调</li><li>LLM 加速</li><li>扩散模型加速</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>模型压缩实验</li><li>量化实验</li><li>Llama2-7B 笔记本部署</li><li>课程项目</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>2025 秋开课吗？</dt><dd>2025 秋因 Song Han 教授休假不开课；公开的是 Fall 2024 全套。</dd><dt>先修要求严格吗？</dt><dd>官方要求 6.191 + 6.390，可用同等经历申请。</dd><dt>适合什么人？</dt><dd>会训练或运行模型、关心延迟与成本的人。</dd></dl>
+<p><strong>主题标签：</strong>剪枝、量化、模型压缩、分布式训练、高效推理、Llama、部署。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-13">课程档案 13｜Stanford CS224R：深度强化学习（CS224R）</h4>
+<p class="meta">学校：Stanford　·　分类：D｜反馈与研究　·　官网：<a href="https://cs224r.stanford.edu/spring_2025/">https://cs224r.stanford.edu/spring_2025/</a></p>
+<p><strong>解决什么问题：</strong>模型如何从反馈中学习：模仿学习、策略优化、Q 学习、离线 RL、奖励学习、RL for LLM、元 RL、分层 RL 与机器人应用。</p>
+<p><strong>可用材料／版本：</strong>官网当前是 2026 春季，公开录播入口指向 2025 版；官方频道合集显示 19 个视频；2025 春课程表完整（Hewlett 200，每周三四）。</p>
+<p><strong>版本说明：</strong>Spring 2025 公开版（讲师 Chelsea Finn；课程经理 John Cho）。</p>
+<p><strong>前置知识：</strong>机器学习（CS229 或同等）；深度学习基础（backprop、CNN、Transformer，PyTorch）；RL 基础（MDP；参考 CS221 的 MDP/RL 讲座或 Sutton &amp; Barto 第 3-4 章）。</p>
+<p><strong>适合谁：</strong>想理解模型如何从反馈中学习、愿意做 RL 实验的人。</p>
+<p><strong>不适合谁：</strong>只想搭工具调用流程的普通办公 Agent 用户。</p>
+<p><strong>第一步：</strong>先补 MDP 与基础 RL，再尝试一个小环境中的策略学习实验（如 CartPole/Atari）。</p>
+<p><strong>真实反馈：</strong>高门槛进阶课；与 CS234 互补，本课程更偏应用与深度学习，强调机器人语言建模用例。</p>
+<p><strong>讲座主题（18 讲）：</strong></p><ol><li>Course intro + MDPs</li><li>Imitation Learning</li><li>Policy Gradients</li><li>Actor-Critic Methods</li><li>Off-Policy Actor Critic</li><li>Q-learning</li><li>Offline RL</li><li>Reward Learning</li><li>RL for LLMs: Preference Optimization</li><li>RL for LLMs: Reasoning</li><li>Model-based RL</li><li>Multi-Task and Goal-Conditioned RL</li><li>Meta-RL</li><li>Exploration</li><li>Hierarchical RL and IL</li><li>RL for Robots: Autonomous Learning</li><li>RL for Robots: Sim-to-Real Transfer</li><li>Frontiers</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>Homework 1-4（概念 + PyTorch 编码）</li><li>Project Survey</li><li>Project Proposal</li><li>Project Milestone</li><li>Poster Session</li><li>Final Project Report</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>和 CS234 区别？</dt><dd>两者互补、互不为前置；CS224R 更偏应用与深度学习，重机器人/语言建模用例。</dd><dt>前置要求？</dt><dd>CS229 或同等、深度学习基础、RL 基础。</dd><dt>公开视频？</dt><dd>公开录播入口指向 2025 版；官方频道合集 19 个视频。</dd></dl>
+<p><strong>主题标签：</strong>强化学习、模仿学习、策略梯度、Q学习、离线RL、奖励学习、RLHF、机器人。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+<h4 id="course-18">课程档案 18｜MIT 6.S184：流匹配与扩散模型（6.S184）</h4>
+<p class="meta">学校：MIT　·　分类：E｜视觉与生成　·　官网：<a href="https://diffusion.csail.mit.edu/2026/">https://diffusion.csail.mit.edu/2026/</a></p>
+<p><strong>解决什么问题：</strong>理解图像/视频生成的数学与实现：随机微分方程、Fokker-Planck 方程、流匹配、评分匹配、无分类器引导、潜空间与离散扩散。</p>
+<p><strong>可用材料／版本：</strong>2026 版官网有讲义、录播、课程笔记（自包含）和三个实验；实验覆盖 ODE/SDE、流匹配与评分匹配、扩散 Transformer 与 VAE。</p>
+<p><strong>版本说明：</strong>2026（讲师 Peter Holderrieth、Ezra Erives）；课程笔记 arXiv 2506.02070 可引用。</p>
+<p><strong>前置知识：</strong>线性代数、多元微积分、概率；Python/PyTorch 基础；推荐概率与深度学习经验。</p>
+<p><strong>适合谁：</strong>想理解图像生成背后的数学和实现、并亲手搭建潜空间扩散模型的人。</p>
+<p><strong>不适合谁：</strong>只想搭 Agent 的人；没有数学基础的人。</p>
+<p><strong>第一步：</strong>从 ODE/SDE 实验开始，再进入模型训练；别被从零误导，以为不需要数学基础。</p>
+<p><strong>真实反馈：</strong>Peimeng Sui 的学习记录认可课程讲解、严格笔记与动手实验相互配合。</p>
+<p><strong>讲座主题（6 讲）：</strong></p><ol><li>Flow and Diffusion Models</li><li>Flow Matching</li><li>Score Functions and Score Matching</li><li>Classifier-free Guidance</li><li>Latent Spaces and Neural Network Architectures</li><li>Discrete Diffusion Models</li></ol>
+<p><strong>作业与实验：</strong></p><ol><li>Lab 1: Working with ODEs and SDEs</li><li>Lab 2: Flow Matching and Score Matching</li><li>Lab 3: Diffusion Transformer and VAEs</li><li>期末：从零搭建潜空间扩散模型</li></ol>
+<p><strong>常见问答：</strong></p><dl><dt>课程笔记？</dt><dd>课程笔记是主干，自包含解释全部内容，可引用 arXiv 2506.02070。</dd><dt>需要数学基础？</dt><dd>线性代数、多元微积分、概率；Python/PyTorch 基础。</dd><dt>最终产出？</dt><dd>亲手构建一个潜空间扩散模型。</dd></dl>
+<p><strong>主题标签：</strong>扩散模型、流匹配、评分匹配、SDE、VAE、生成模型。这些标签与术语大词典卷互相索引，可按标签反向查找本课程的术语卡片。</p>
+</section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>

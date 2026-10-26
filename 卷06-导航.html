@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · 卷六｜AI 术语大词典（10224 条）</title>
+<style>
+:root{--paper:#faf6ef;--ink:#23211d;--accent:#b03a2e;--accent2:#6b5d4a;--line:#dcd3c3;--bg:#efe7d8;}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;line-height:1.9;}
+header.top{background:var(--ink);color:var(--paper);padding:28px 20px;}
+header.top h1{margin:0 0 6px;font-size:26px;line-height:1.4;}
+header.top p{margin:4px 0;color:#d8cfc2;font-size:14px;}
+.wrap{max-width:900px;margin:0 auto;padding:24px 16px 90px;}
+nav.toc{background:#fff;border:1px solid var(--line);padding:14px 18px;margin:18px 0;position:sticky;top:0;z-index:10;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+nav.toc h2{margin:0 0 8px;font-size:15px;color:var(--accent);}
+nav.toc a{display:inline-block;margin:2px 8px 2px 0;color:var(--accent2);text-decoration:none;font-size:13px;}
+nav.toc a:hover{color:var(--accent);text-decoration:underline;}
+section.chapter{background:#fff;border:1px solid var(--line);margin:26px 0;padding:22px 24px;}
+h3{color:var(--accent);border-left:5px solid var(--accent);padding-left:10px;margin:4px 0 14px;font-size:20px;}
+h4{color:var(--ink);margin:22px 0 8px;font-size:17px;border-bottom:1px solid var(--line);padding-bottom:4px;}
+p{margin:8px 0;}
+.meta{color:var(--accent2);font-size:13px;}
+.en{color:var(--accent2);font-size:13px;}
+.pn{color:var(--accent);font-weight:bold;margin-right:6px;}
+.rel{background:#faf6ef;border-left:3px solid var(--accent2);padding:6px 10px;margin:6px 0;}
+.quiz{background:#f6f1e6;border:1px solid var(--line);padding:10px 12px;margin:8px 0;}
+.paper{border-bottom:1px dotted var(--line);padding:6px 0;}
+.conv{border-bottom:1px dotted var(--line);padding:6px 0;}
+.sent{border-left:3px solid var(--accent2);padding:4px 10px;margin:6px 0;}
+table{width:100%;border-collapse:collapse;margin:10px 0;table-layout:fixed;}
+th,td{border:1px solid var(--line);padding:6px 8px;font-size:14px;vertical-align:top;}
+th{background:#f6f1e6;}
+a{color:var(--accent);}
+footer{max-width:900px;margin:0 auto;padding:16px;color:var(--accent2);font-size:13px;text-align:center;}
+@media (max-width:500px){
+header.top h1{font-size:20px;}
+section.chapter{padding:16px 12px;}
+th,td{font-size:13px;padding:5px 4px;}
+h3{font-size:17px;}
+}
+
+/* ===== 体验改造：目录折叠 / 跳转高亮 / 响应式 / 排版 ===== */
+nav.toc{padding:10px 14px;}
+.toc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:2px;}
+.toc-head h2{margin:0;font-size:15px;color:var(--accent);}
+.toc-btn{background:var(--accent);color:#fff;border:0;border-radius:14px;padding:4px 12px;font-size:12px;cursor:pointer;flex-shrink:0;}
+.toc-btn:hover{background:#8f2f24;}
+.toc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:2px 12px;margin-top:6px;}
+.toc-links a{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:2px 4px;border-radius:4px;}
+.toc-links a.hide{display:none;}
+.toc-links a:hover{background:#f6f1e6;}
+.back-toc{display:inline-block;margin-top:12px;font-size:13px;color:var(--accent2);text-decoration:none;border:1px solid var(--line);border-radius:12px;padding:2px 10px;background:#faf6ef;}
+.back-toc:hover{color:var(--accent);border-color:var(--accent);}
+#topBtn{position:fixed;right:16px;bottom:16px;z-index:99;background:var(--ink);color:var(--paper);border:0;border-radius:20px;padding:6px 12px;font-size:13px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .25s;}
+#topBtn.show{opacity:1;pointer-events:auto;}
+@keyframes tocFlash{0%,55%{outline:5px solid rgba(176,58,46,.55);outline-offset:8px;}100%{outline:5px solid transparent;outline-offset:8px;}}
+.flash{animation:tocFlash 2.6s ease;}
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+section.chapter h4[id]{background:linear-gradient(90deg,#faf6ef 0%,#fff 40%);border-left:5px solid var(--accent2);padding:7px 12px;border-radius:0 6px 6px 0;font-size:16px;}
+@media(max-width:768px){
+  .wrap{padding:14px 10px 80px;}
+  header.top{padding:20px 14px;}
+  section.chapter{padding:16px 14px;}
+  h3{font-size:18px;}
+  h4{font-size:16px;}
+  th,td{font-size:12px;padding:5px 5px;}
+  .toc-links{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:500px){
+  .toc-links{grid-template-columns:1fr;}
+  .toc-links a{white-space:normal;}
+  header.top h1{font-size:19px;}
+  section.chapter{padding:14px 10px;}
+  h3{font-size:17px;}
+  #topBtn{right:10px;bottom:10px;}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap" style="padding:0"><h1>卷六｜AI 术语大词典（10224 条）</h1><p>斯坦福、MIT 最新 AI 课程导航：20 门里先选这 10 门 · <a href="index.html">← 返回目录</a></p></div></header>
+<main><div class="wrap">
+<section class="chapter" id="sec"><h3>卷六｜AI 术语大词典（10224 条）</h3><p>本卷收录文章与课程体系中出现的高频术语，按类别组织。每条卡片包含定义、一句话理解、范畴导语、课程关联、深度解读、常见误区、学习方法、相关术语与自测。点击类别进入对应分卷。</p><div class="catgrid"><a class="cat" href="卷06-术语大词典-6.1数学与统计.html"><b>6.1 数学与统计（718 条）</b><i>718 条</i></a><a class="cat" href="卷06-术语大词典-6.2机器学习.html"><b>6.2 机器学习（71 条）</b><i>71 条</i></a><a class="cat" href="卷06-术语大词典-6.3深度学习.html"><b>6.3 深度学习（402 条）</b><i>402 条</i></a><a class="cat" href="卷06-术语大词典-6.4自然语言处理.html"><b>6.4 自然语言处理（572 条）</b><i>572 条</i></a><a class="cat" href="卷06-术语大词典-6.5大模型.html"><b>6.5 大模型（140 条）</b><i>140 条</i></a><a class="cat" href="卷06-术语大词典-6.6训练与优化.html"><b>6.6 训练与优化（170 条）</b><i>170 条</i></a><a class="cat" href="卷06-术语大词典-6.7系统与部署.html"><b>6.7 系统与部署（597 条）</b><i>597 条</i></a><a class="cat" href="卷06-术语大词典-6.8强化学习.html"><b>6.8 强化学习（347 条）</b><i>347 条</i></a><a class="cat" href="卷06-术语大词典-6.9生成模型.html"><b>6.9 生成模型（632 条）</b><i>632 条</i></a><a class="cat" href="卷06-术语大词典-6.10Agent与工具.html"><b>6.10 Agent与工具（247 条）</b><i>247 条</i></a><a class="cat" href="卷06-术语大词典-6.11检索与上下文.html"><b>6.11 检索与上下文（130 条）</b><i>130 条</i></a><a class="cat" href="卷06-术语大词典-6.12评估与数据.html"><b>6.12 评估与数据（1015 条）</b><i>1015 条</i></a><a class="cat" href="卷06-术语大词典-6.13视觉与多模态.html"><b>6.13 视觉与多模态（284 条）</b><i>284 条</i></a><a class="cat" href="卷06-术语大词典-6.14产品与工程.html"><b>6.14 产品与工程（285 条）</b><i>285 条</i></a><a class="cat" href="卷06-术语大词典-6.15软件工程与算法.html"><b>6.15 软件工程与算法（417 条）</b><i>417 条</i></a><a class="cat" href="卷06-术语大词典-6.16沟通与协作.html"><b>6.16 沟通与协作（647 条）</b><i>647 条</i></a><a class="cat" href="卷06-术语大词典-6.17学习方法.html"><b>6.17 学习方法（1272 条）</b><i>1272 条</i></a><a class="cat" href="卷06-术语大词典-6.18商业与战略.html"><b>6.18 商业与战略（978 条）</b><i>978 条</i></a><a class="cat" href="卷06-术语大词典-6.19AI安全与伦理.html"><b>6.19 AI 安全与伦理（962 条）</b><i>962 条</i></a><a class="cat" href="卷06-术语大词典-6.20数据工程.html"><b>6.20 数据工程（236 条）</b><i>236 条</i></a><a class="cat" href="卷06-术语大词典-6.21硬件与算力.html"><b>6.21 硬件与算力（102 条）</b><i>102 条</i></a></div></section>
+</div></main>
+<footer>本档案由豆包工作对话生成 · 阅读版分卷 · 返回 <a href="index.html">目录</a></footer>
+<script>
+(function(){try{
+var tb=document.createElement('button');tb.type='button';tb.id='topBtn';tb.textContent='↑ 顶部';
+document.body.appendChild(tb);
+var tick=false;
+function onScroll(){if(tick)return;tick=true;requestAnimationFrame(function(){
+var y=window.scrollY||document.documentElement.scrollTop||0;
+tb.classList.toggle('show',y>600);tick=false;});}
+window.addEventListener('scroll',onScroll,{passive:true});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+onScroll();
+function flash(){var h=location.hash;if(!h)return;var el=document.getElementById(h.slice(1));
+if(!el)return;el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');
+setTimeout(function(){el.classList.remove('flash');},2700);}
+window.addEventListener('hashchange',flash);flash();
+}catch(e){} })();
+</script>
+</body>
+</html>
